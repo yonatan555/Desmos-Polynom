@@ -5,14 +5,14 @@ import myMathPro.Polynom;
 
 public class PolynomTest {
 	public static void main(String[] args) {
-		test1(); 
-	 	/*test2(); 
-		test3(); 
+		//test1(); 
+		//test2(); 
+		//test3(); 
 		test4(); 
-		test5(); 
-		test6(); 
-		test7();*/
-		/*test8();*/
+		//test5(); 
+		//test6(); 
+		//test7();
+		//test8();
 	}
 	public static void test1() {
 		Polynom p1 = new Polynom("4x^2+22x^2+3x-3x+1");
@@ -78,8 +78,8 @@ public class PolynomTest {
 		Polynom p1 = new Polynom();
 		Polynom p2 = new Polynom();
 
-		String[] monoms1 = { "x^4", "4x", "-3.2x^2", "4", "-1.5x^2" };
-		String[] monoms2 = { "3", "x", "2x", "1.7x", "3.2x^2", "-3", "-1.5x^2" };
+		String[] monoms1 = { "x^2" };
+		String[] monoms2 = { "x" };
 
 		for (int i = 0; i < monoms1.length; i++) {
 			Monom m = new Monom(monoms1[i]);
@@ -91,13 +91,13 @@ public class PolynomTest {
 		}
 		p1.multiply(p2); // polynom multiply test1
 		System.out.println(p1);
-		System.out.println(p2); // p2 toString
+		/*System.out.println(p2); // p2 toString
 		System.out.println(p1.equals(p2)); // polynom isEqual between 2 strings		
 		p1.multiply(p2);
 		System.out.println("(p1+p2)*p2: " + p1);
 		String s1 = p1.toString();
 		System.out.println("from string: " + p1);
-	}
+	*/}
 
 	public static void test5() {
 		Polynom p1 = new Polynom();
