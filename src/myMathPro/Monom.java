@@ -58,6 +58,7 @@ public class Monom implements function {
 		}
 		return new Monom(this.get_coefficient() * this.get_power(), this.get_power() - 1);
 	}
+
 	public double f(double x) {
 		double ans = 0;
 		double p = this.get_power();
@@ -91,8 +92,8 @@ public class Monom implements function {
 			a = "1";
 		}
 		while (i < s.length() && s.charAt(i) != 'x') { // add the whole num to string
-			if (s.charAt(i) >= 32 && s.charAt(i) <= 44 || s.charAt(i) == 47 || s.charAt(i) >= 58 && s.charAt(i) <= 93 || s.charAt(i) >= 95 && s.charAt(i) <= 119 
-					|| s.charAt(i) >= 121 && s.charAt(i) <= 127)
+			if (s.charAt(i) >= 32 && s.charAt(i) <= 44 || s.charAt(i) == 47 || s.charAt(i) >= 58 && s.charAt(i) <= 93
+					|| s.charAt(i) >= 95 && s.charAt(i) <= 119 || s.charAt(i) >= 121 && s.charAt(i) <= 127)
 				throw new RuntimeException("wrong input");
 			else {
 				a = a + s.charAt(i);
@@ -125,6 +126,7 @@ public class Monom implements function {
 			this._power = Integer.parseInt(a);
 		}
 	}
+
 	public void add(Monom m) {
 		this._coefficient = this._coefficient + m._coefficient;
 	}
@@ -136,37 +138,35 @@ public class Monom implements function {
 
 	public String toString() {
 		String ans = "";
-		if (this._coefficient == 0)
-			return "" + 0;
 		if (this._power == 0)
 			return "" + this._coefficient;
 		if (this._power == 1)
-			return  this._coefficient + "x";
+			return this._coefficient + "x";
 
 		ans = "" + this._coefficient + "x" + "^" + this._power;
 		return ans;
 	}
-	
+
 	public boolean equals(Object c) {
-		if(c instanceof  Monom) {
-		 
-		if (this.get_coefficient() == ((Monom)c).get_coefficient() && this.get_power() == ((Monom)c).get_power())
-			return true;
-		if (this.get_coefficient() == 0 && ((Monom)c).get_coefficient() == 0)
-			return true;
+		if (c instanceof Monom) {
+
+			if (this.get_coefficient() == ((Monom) c).get_coefficient() && this.get_power() == ((Monom) c).get_power())
+				return true;
+			if (this.get_coefficient() == 0 && ((Monom) c).get_coefficient() == 0)
+				return true;
 		}
 		return false;
 	}
-	
+
 	@Override
 	public function initFromString(String s) {
-		
+
 		return null;
 	}
 
 	@Override
 	public function copy() {
-		
+
 		return null;
 	}
 	// you may (always) add other methods.

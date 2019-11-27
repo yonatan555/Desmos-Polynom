@@ -15,7 +15,7 @@ public class PolynomTest {
 		/*test8();*/
 	}
 	public static void test1() {
-		Polynom p1 = new Polynom("4x^2+22x^2");
+		Polynom p1 = new Polynom("4x^2+22x^2+3x-3x+1");
 		/*String[] monoms = { "3x^2 + 1" }; // test if the consrctuor is working
 		
 		Monom m1 = new Monom(monoms[0]);

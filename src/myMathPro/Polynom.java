@@ -53,6 +53,11 @@ public class Polynom implements Polynom_able {
 				else {
 					if (s.charAt(i) == '+' || s.charAt(i) == '-' || i == (s.length()-1)) {
 						if (s.charAt(0) == '-') {
+							if(i==(s.length()-1)) {
+								Monom m = new Monom(s);
+								this.add(m);
+								return;
+							}
 							for (int j = 1; j < s.length(); j++) {
 								if (s.charAt(j) == '+' || s.charAt(j) == '-') {
 									a =  s.substring(0, j);
@@ -243,6 +248,9 @@ public class Polynom implements Polynom_able {
 	}
 
 	public String toString() {
+		for (int i = 0; i < this.polynom.size(); i++) {
+			if(polynom.get(i).get_coefficient()==0) polynom.remove(i);
+		}
 		polynom.sort(Monom._Comp);
 		String ans = "";
 		ans =  polynom.get(0).toString();
