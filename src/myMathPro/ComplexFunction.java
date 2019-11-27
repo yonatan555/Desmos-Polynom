@@ -1,8 +1,8 @@
 package myMathPro;
 
-import myMath.Operation;
-import myMath.Polynom;
-import myMath.function;
+import myMathPro.Operation;
+import myMathPro.Polynom;
+import myMathPro.function;
 
 public class ComplexFunction implements complex_function{
 	public function left;

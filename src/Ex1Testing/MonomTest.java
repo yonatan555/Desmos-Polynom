@@ -1,8 +1,8 @@
 package Ex1Testing;
 
 import java.util.ArrayList;
-
-import myMath.Monom;
+import myMathPro.Monom;
+import myMathPro.Polynom;
 
 /**
  * This class represents a simple (naive) tester for the Monom class, Note: <br>
@@ -25,10 +25,10 @@ import myMath.Monom;
 public class MonomTest {
 	public static void main(String[] args) {
 		test1();
-		test2();
+		/*test2();
 		//test3(); 	//test with error
 		//test4();	// test with error
-		test5();	// test with error
+		test5();*/	// test with error
 	}
 
 	
@@ -36,7 +36,9 @@ public class MonomTest {
 
 
 	private static void test1() {
-		System.out.println("*****  Test1:  *****");
+		Monom ab = new Monom("x");
+		System.out.println(ab);
+		/*System.out.println("*****  Test1:  *****");
 		String[] monoms = { "2", "3.2x^2", "0" };
 		for (int i = 0; i < monoms.length; i++) {
 			Monom m = new Monom(monoms[i]);
@@ -44,7 +46,7 @@ public class MonomTest {
 			m = new Monom(s);
 			double fx = m.f(i);
 			System.out.println(i + ") " + m + "    \tisZero: " + m.isZero() + "\t f(" + i + ") = " + fx);
-		}
+		}*/
 	}
 
 	private static void test2() {

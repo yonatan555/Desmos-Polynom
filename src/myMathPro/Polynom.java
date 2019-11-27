@@ -8,6 +8,8 @@ import java.util.function.Predicate;
 import org.hamcrest.core.IsInstanceOf;
 import org.omg.CORBA.TIMEOUT;
 
+import myMath.Monom;
+
 /**
  * This class represents a Polynom with add, multiply functionality, it also
  * should support the following: 1. Riemann's Integral:
@@ -38,10 +40,10 @@ public class Polynom implements Polynom_able {
 	 * @param s: is a string represents a Polynom
 	 */
 	public Polynom(String s) throws RuntimeException {
-		polynom = new ArrayList<Monom>();
+		this.polynom = new ArrayList<Monom>();
 
 		if (s.length() == 0)
-			polynom.add(Monom.ZERO);
+			this.add(Monom.ZERO);
 		else {
 			String a = "";
 			for (int i = 0; i < s.length(); i++) {
@@ -49,35 +51,48 @@ public class Polynom implements Polynom_able {
 						|| s.charAt(i) >= 121 && s.charAt(i) <= 127)
 					throw new RuntimeException("wrong input");
 				else {
-				if (s.charAt(i) == '+' || s.charAt(i) == '-') {
-					if (s.charAt(0) == '-') {
-						for (int j = 1; j < s.length(); j++) {
-							if (s.charAt(j) == '+' || s.charAt(j) == '-') {
-								a = a + s.substring(0, j);
-								if (s.charAt(j) == '-')
-									s = s.substring(j);
-								else
-									s = s.substring(j);
-								i = 0;
-								Monom m = new Monom(a);
-								polynom.add(m);
-								break;
+					if (s.charAt(i) == '+' || s.charAt(i) == '-' || i == (s.length()-1)) {
+						if (s.charAt(0) == '-') {
+							for (int j = 1; j < s.length(); j++) {
+								if (s.charAt(j) == '+' || s.charAt(j) == '-') {
+									a =  s.substring(0, j);
+									if (s.charAt(j) == '-')
+										s = s.substring(j);
+									else
+										s = s.substring(j+1);
+									i = 0;
+									Monom m = new Monom(a);
+									this.add(m);
+									break;
+								}
 							}
+						} 
+						else 
+						{
+							if (i==(s.length()-1)) {
+								Monom m = new Monom(s);
+								this.add(m);
+								return;
+							}
+							else {
+								a =  s.substring(0, i);
+							}
+							if (s.charAt(i) == '-')
+								s = s.substring(i);
+							else if (s.charAt(i)== '+')
+								s = s.substring(i + 1);
+							i = 0;
+							Monom m = new Monom(a);
+							this.add(m);
 						}
-					} else {
-						a = a + s.substring(0, i);
-						if (s.charAt(i) == '-')
-							s = s.substring(i);
-						else
-							s = s.substring(i + 1);
-						i = 0;
-						Monom m = new Monom(a);
-						polynom.add(m);
 					}
 				}
-				a = "";
 			}
+			if(s.length()==1) {
+				Monom m = new Monom(s);
+				this.add(m);
 			}
+				
 		}
 	}
 	@Override
@@ -131,20 +146,20 @@ public class Polynom implements Polynom_able {
 		}
 		this.polynom = ans.polynom;
 		this.polynom.sort(Monom._Comp);
-				
-				
+
+
 	}
 	@Override
 	public boolean equals(Object p1) {
 		if(p1 instanceof Polynom_able) {
-		polynom.sort(Monom._Comp);
-		Iterator<Monom> etiP = ((Polynom_able )p1).iteretor();
-		Iterator<Monom> etiT = this.iteretor();
-		while (etiP.hasNext() || etiT.hasNext()) {
-			if (!(etiP.next().equals(etiT.next())))
-				return false;
-		}
-		return true;
+			polynom.sort(Monom._Comp);
+			Iterator<Monom> etiP = ((Polynom_able )p1).iteretor();
+			Iterator<Monom> etiT = this.iteretor();
+			while (etiP.hasNext() || etiT.hasNext()) {
+				if (!(etiP.next().equals(etiT.next())))
+					return false;
+			}
+			return true;
 		}
 		return false;
 	}
@@ -170,8 +185,8 @@ public class Polynom implements Polynom_able {
 				x2 = (x0 + x1) / 2;
 			}
 			if(f(x2) <-eps) {
-					x0 = x2 ;
-					x2 = (x0 + x1) / 2;
+				x0 = x2 ;
+				x2 = (x0 + x1) / 2;
 			}
 		}
 		return x2;

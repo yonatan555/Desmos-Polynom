@@ -1,35 +1,38 @@
 package Ex1Testing;
 
-import myMath.Monom;
-import myMath.Polynom;
+import myMathPro.Monom;
+import myMathPro.Polynom;
 
 public class PolynomTest {
 	public static void main(String[] args) {
 		test1(); 
-		test2(); 
+	 	/*test2(); 
 		test3(); 
 		test4(); 
 		test5(); 
 		test6(); 
-		test7();
-		test8();
+		test7();*/
+		/*test8();*/
 	}
 	public static void test1() {
-		Polynom p1 = new Polynom();
-		String[] monoms = { "3x^2 + x" }; // test if the consrctuor is working
+		Polynom p1 = new Polynom("4x^2+22x^2");
+		/*String[] monoms = { "3x^2 + 1" }; // test if the consrctuor is working
+		
 		Monom m1 = new Monom(monoms[0]);
 		for (int i = 0; i < monoms.length; i++) {
 			Monom m = new Monom(monoms[i]);
 			p1.add(m);
 		}
+		*/
+		
 		System.out.println(p1); // test toString
-		System.out.println(p1.f(2)); // test for f function (return the Y value at X value)
+		/*System.out.println(p1.f(2)); // test for f function (return the Y value at X value)
 		System.out.println(p1.isZero()); // return if zero
 		System.out.println(p1.root(1, 3, 0.000001)); // return the cross with pivot X
 		System.out.println(p1.derivative()); // derivative
 		System.out.println(p1.area(0, 2, 0.0000001)); // area
 		p1.multiply(m1); // multiply function
-		System.out.println(p1);
+		System.out.println(p1);*/
 	}
 
 	public static void test2() {
@@ -166,12 +169,17 @@ public class PolynomTest {
 			Monom m = new Monom(monoms2[i]);
 			p2.add(m);
 		}
+		System.out.println(p1);
 		p1.substract(p2);
 		System.out.println(p1); // substract function between 2 polynoms
 		System.out.println(p1);
 		System.out.println(p1); // test toString
 		System.out.println(p1.derivative()); // derivative
 		System.out.println(p1.isZero()); // return if zero
+		Polynom pole = new Polynom("4x^2+2x+1+1");
+		System.out.println(pole);
+		System.out.println(pole.f(1));
+		
 	}
 
 	}

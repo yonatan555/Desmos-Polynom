@@ -1,6 +1,6 @@
 package myMathPro;
 
-import myMath.function;
+import myMathPro.function;
 
 /**
  * The interface represents a continuance function 

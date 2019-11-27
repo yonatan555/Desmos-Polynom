@@ -4,21 +4,24 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import myMathPro.Monom;
+import myMathPro.Polynom;
+
 class PolynomTestJunit {
 
 	@Test
-	void testPolynom() {
-		fail("Not yet implemented");
-	}
-
-	@Test
 	void testFunctison() {
-		fail("Not yet implemented");
+		
 	}
 
 	@Test
 	void testPolynomString() {
-		fail("Not yet implemented");
+		Polynom p = new Polynom("-3x^2+2x+1");
+		Polynom t = new Polynom();
+		t.add(new Monom ("3x^2"));
+		t.add(new Monom("2x"));
+		t.add(new Monom("1"));
+		assertEquals(t, p);
 	}
 
 	@Test
