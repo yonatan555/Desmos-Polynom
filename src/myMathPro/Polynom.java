@@ -272,7 +272,6 @@ public class Polynom implements Polynom_able {
 				this.polynom.remove(i);
 		}
 	}
-
 	public String toString() {
 		for (int i = 0; i < this.polynom.size(); i++) {
 			if(polynom.get(i).get_coefficient()==0) polynom.remove(i);
