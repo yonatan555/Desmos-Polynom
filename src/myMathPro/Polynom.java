@@ -286,7 +286,7 @@ public class Polynom implements Polynom_able {
 	}
 	@Override
 	public function initFromString(String s) {
-		// TODO Auto-generated method stub
-		return null;
+		ComplexFunction fun = new ComplexFunction(new Polynom(s));
+		return fun;
 	}
 }
