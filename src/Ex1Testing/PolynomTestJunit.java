@@ -11,7 +11,7 @@ class PolynomTestJunit {
 
 	@Test
 	void testFunctison() {
-		
+		fail("Not yet implemented");
 	}
 
 	@Test
@@ -71,20 +71,20 @@ class PolynomTestJunit {
 	void testRoot() {
 		Polynom root = new Polynom("x-4");
 		double exp = root.root(5, -5, 0.0000001);
-		if(0.0000001 > exp) {
-			exp = 4; 
+		if(exp<=4.0001 && exp>3.9999) {
+			exp = 4.0; 
 		}
 		assertEquals(4.0,exp);
 	}
 
 	@Test
 	void testDerivative() {
-		//fail("Not yet implemented");
+		fail("Not yet implemented");
 	}
 
 	@Test
 	void testArea() {
-		//fail("Not yet implemented");
+		fail("Not yet implemented");
 	}
 
 	@Test
@@ -98,12 +98,12 @@ class PolynomTestJunit {
 
 	@Test
 	void testToString() {
-		//fail("Not yet implemented");
+		fail("Not yet implemented");
 	}
 
 	@Test
 	void testInitFromString() {
-		//fail("Not yet implemented");
+		fail("Not yet implemented");
 	}
 
 }

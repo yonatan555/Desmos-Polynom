@@ -1,9 +1,7 @@
-
 package myMathPro;
 
 import java.util.Comparator;
 
-import org.hamcrest.core.IsInstanceOf;
 
 /**
  * This class represents a simple "Monom" of shape a*x^b, where a is a real
@@ -16,6 +14,7 @@ import org.hamcrest.core.IsInstanceOf;
  *
  */
 public class Monom implements function {
+	
 	public static final Monom ZERO = new Monom(0, 0);
 	public static final Monom MINUS1 = new Monom(-1, 0);
 	public static final double EPSILON = 0.0000001;
@@ -28,6 +27,7 @@ public class Monom implements function {
 	public Monom(double a, int b) {
 		this.set_coefficient(a);
 		this.set_power(b);
+		             
 	}
 
 	public Monom() {
@@ -46,9 +46,8 @@ public class Monom implements function {
 	public int get_power() {
 		return this._power;
 	}
-
 	/**
-	 * this method returns the derivative monom of this.
+	 *this method returns the derivative monom of this.
 	 * 
 	 * @return
 	 */
@@ -163,7 +162,6 @@ public class Monom implements function {
 
 		return null;
 	}
-
 	@Override
 	public function copy() {
 

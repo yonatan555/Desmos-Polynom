@@ -194,14 +194,26 @@ public class Polynom implements Polynom_able {
 			throw new RuntimeException("the multiply is up to 0 ,hence there is no cross with pivot X");
 		}
 		double x2 = (x0 + x1) / 2;		
-		while (f(x2) < -eps ||  f(x2)> eps) {
-			if (f(x2) > eps) {
-				x1 = x2 ;
-				x2 = (x0 + x1) / 2;
+		while (this.f(x2) < -eps ||  this.f(x2)> eps) {
+			if (this.f(x2) > eps) {
+				if(this.f(x0)>eps) {
+					x0=x2;
+					x2=(x0+x1)/2;
+				}
+				else {
+					x1 = x2 ;
+					x2 = (x0 + x1) / 2;
+				}
 			}
-			if(f(x2) <-eps) {
-				x0 = x2 ;
-				x2 = (x0 + x1) / 2;
+			if(this.f(x2) <-eps) {
+				if(this.f(x0)<-eps) {
+					x0 = x2 ;
+					x2 = (x0 + x1) / 2;
+				}
+				else {
+					x1 = x2;
+					x2 = (x0+x1)/2;
+				}
 			}
 		}
 		return x2;

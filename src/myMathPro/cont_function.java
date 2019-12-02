@@ -7,6 +7,7 @@ import myMathPro.function;
  * @author Boaz
  *
  */ 
+
 public interface cont_function extends function{
 	/**
 	 * Compute a Riman's integral from x0 to x1 in eps steps. 

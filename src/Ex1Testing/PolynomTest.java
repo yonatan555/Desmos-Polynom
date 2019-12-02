@@ -8,9 +8,9 @@ public class PolynomTest {
 		//test1(); 
 		//test2(); 
 		//test3(); 
-		test4(); 
+		//test4(); 
 		//test5(); 
-		//test6(); 
+		test6(); 
 		//test7();
 		//test8();
 	}
@@ -116,20 +116,20 @@ public class PolynomTest {
 	}
 
 	public static void test6() {
-		Polynom p1 = new Polynom();
-		String[] monoms = { "x", "3" }; // test if the consrctuor is working
+		Polynom p1 = new Polynom("x-4");
+		/*String[] monoms = { "x", "-4" }; // test if the consrctuor is working
 		Monom m1 = new Monom(monoms[0]);
 		for (int i = 0; i < monoms.length; i++) {
 			Monom m = new Monom(monoms[i]);
-			p1.add(m);
-		}
-		System.out.println(p1.area(0, 2, 0.0000001)); // area
-		System.out.println(p1.root(1, 3, 0.000001)); // return the cross with pivot X
-		System.out.println(p1);
+			p1.add(m);*/
+	//	}
+		//System.out.println(p1.area(0, 2, 0.0000001)); // area
+		System.out.println(p1.root(5, -5, 0.000001)); // return the cross with pivot X
+		/*System.out.println(p1);
 		System.out.println(p1); // test toString
 		System.out.println(p1.derivative()); // derivative
 		System.out.println(p1.isZero()); // return if zero
-	}
+*/	}
 
 	private static void test7() {
 		Polynom p1 = new Polynom();
