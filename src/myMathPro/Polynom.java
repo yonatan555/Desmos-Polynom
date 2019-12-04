@@ -291,7 +291,13 @@ public class Polynom implements Polynom_able {
 	}
 	@Override
 	public boolean equals(Polynom_able p1) {
-		// TODO Auto-generated method stub
-		return false;
+		polynom.sort(Monom._Comp);
+		Iterator<Monom> etiP = ((Polynom_able )p1).iteretor();
+		Iterator<Monom> etiT = this.iteretor();
+		while (etiP.hasNext() || etiT.hasNext()) {
+			if (!(etiP.next().equals(etiT.next())))
+				return false;
+		}
+		return true;
 	}
 }

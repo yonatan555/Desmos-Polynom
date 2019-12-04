@@ -12,7 +12,7 @@ public class ComplexFunction implements complex_function{
 	public ComplexFunction() {
 		this.left=null;
 		this.right=null;
-		this.operator=null;
+		this.operator = Operation.None;
 	}
 	public ComplexFunction(Operation p, function f1, function f2) {
 		this.left=f1;
@@ -24,7 +24,7 @@ public class ComplexFunction implements complex_function{
 		this.left=f1;
 		this.right=f2;
 		s = s.toLowerCase();
-		if (s.equals("plus")) operator=Operation.Plus;
+		if (s.equals("plus")) operator = Operation.Plus;
 		if (s.equals("times")) operator=Operation.Times;
 		if (s.equals("divid")) operator=Operation.Divid;
 		if (s.equals("comp")) operator=Operation.Comp;
@@ -49,7 +49,7 @@ public class ComplexFunction implements complex_function{
 		if (this.operator==Operation.Error) return 0;
 		if (this.operator==Operation.Max) return Math.max(left1, right1);
 		if (this.operator==Operation.Min) return Math.min(left1, right1);
-		if (this.operator==Operation.None) return 0;
+		if (this.operator==Operation.None) return this.left.f(x);
 		return 0;
 	}
 

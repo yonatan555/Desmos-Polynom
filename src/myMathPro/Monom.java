@@ -159,13 +159,11 @@ public class Monom implements function {
 
 	@Override
 	public function initFromString(String s) {
-
-		return null;
+	return  new ComplexFunction(new Polynom(s));
 	}
 	@Override
 	public function copy() {
-
-		return null;
+		return new ComplexFunction(new Polynom(this.toString()));
 	}
 	// you may (always) add other methods.
 
