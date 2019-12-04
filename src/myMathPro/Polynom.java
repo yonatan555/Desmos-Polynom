@@ -97,7 +97,7 @@ public class Polynom implements Polynom_able {
 				Monom m = new Monom(s);
 				this.add(m);
 			}
-				
+		
 		}
 	}
 	@Override
@@ -288,5 +288,10 @@ public class Polynom implements Polynom_able {
 	public function initFromString(String s) {
 		ComplexFunction fun = new ComplexFunction(new Polynom(s));
 		return fun;
+	}
+	@Override
+	public boolean equals(Polynom_able p1) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }
