@@ -21,6 +21,7 @@ import myMath.Monom;
  */
 public class Polynom implements Polynom_able {
 	ArrayList<Monom> polynom;
+	
 
 	/**
 	 * Zero (empty polynom)
@@ -28,9 +29,6 @@ public class Polynom implements Polynom_able {
 	public Polynom() {
 		this.polynom = new ArrayList<Monom>();
 		this.polynom.add(new Monom(Monom.ZERO));
-	}
-	public void  functison() {
-		;
 	}
 
 	/**
@@ -40,77 +38,90 @@ public class Polynom implements Polynom_able {
 	 * @param s: is a string represents a Polynom
 	 */
 	public Polynom(String s) throws RuntimeException {
-		this.polynom = new ArrayList<Monom>();
-		int o=0;
-		if (s.length() == 0)
-			this.add(Monom.ZERO);
-		else {
-			String a = "";
-			for (int i = 0; i < s.length(); i++) {
-				if (s.charAt(i) >= 32 && s.charAt(i) <= 42 ||s.charAt(i)==44 || s.charAt(i) == 47 || s.charAt(i) >= 58 && s.charAt(i) <= 93 || s.charAt(i) >= 95 && s.charAt(i) <= 119 
-						|| s.charAt(i) >= 121 && s.charAt(i) <= 127)
-					throw new RuntimeException("wrong input");
-				else {
-					if (s.charAt(i) == '+' || s.charAt(i) == '-' || i == (s.length()-1)) {
-						if (s.charAt(0) == '-') {
-							if(i==(s.length()-1)) {
-								Monom m = new Monom(s);
-								this.add(m);
-								return;
-							}
-							for (int j = 1; j < s.length(); j++) {
-								if (s.charAt(j) == '+' || s.charAt(j) == '-') {
-									a =  s.substring(0, j);
-									if (s.charAt(j) == '-')
-										s = s.substring(j);
-									else
-										s = s.substring(j+1);
-									i = 0;
-									Monom m = new Monom(a);
-									this.add(m);
-									break;
-								}
-							}
-						} 
-						else 
-						{
-							if (i==(s.length()-1)) {
-								s=s.substring(1);
-								Monom m = new Monom(s);
-								this.add(m);
-								return;
-							}
-							else {
-								for (int j = 1; j < s.length(); j++) {
-									if (s.charAt(j) == '+' || s.charAt(j) == '-' || j==s.length()-1) {
-										if(j==s.length()-1) {
-											a=s.substring(1);
-										}
-										else {
-										a =  s.substring(1, j);
-										o=j;
-										break;
-										}
-									}
-								}
-							}
-							if (s.charAt(i) == '-')
-								s = s.substring(i);
-							else if (s.charAt(i)== '+')
-								s = s.substring(o);
-							i = 0;
-							Monom m = new Monom(a);
-							this.add(m);
-						}
-					}
-				}
-			}
-			if(s.length()==1) {
-				Monom m = new Monom(s);
-				this.add(m);
-			}
+		polynom = new ArrayList<Monom>();
 		
+		String[] str = s.split("(?=\\+|-)");
+		for (int i = 0; i < str.length; i++) {
+			
+			polynom.add(new Monom(str[i]));
 		}
+		
+		this.polynom.sort(Monom._Comp);
+		
+//		this.polynom = new ArrayList<Monom>();
+//		int o=0;
+//		if (s.length() == 0)
+//			this.add(Monom.ZERO);
+//		else {
+//			String a = "";
+//			for (int i = 0; i < s.length(); i++) {
+//				if (isLegalChar(s,i))
+//					throw new RuntimeException("wrong input");
+//				else {
+//					if (s.charAt(i) == '+' || s.charAt(i) == '-' || i == (s.length()-1)) {
+//						if (s.charAt(0) == '-') {
+//							if(i==(s.length()-1)) {
+//								Monom m = new Monom(s);
+//								this.add(m);
+//								return;
+//							}
+//							for (int j = 1; j < s.length(); j++) {
+//								if (s.charAt(j) == '+' || s.charAt(j) == '-') {
+//									a =  s.substring(0, j);
+//									if (s.charAt(j) == '-')
+//										s = s.substring(j);
+//									else
+//										s = s.substring(j+1);
+//									i = 0;
+//									Monom m = new Monom(a);
+//									this.add(m);
+//									break;
+//								}
+//							}
+//						} 
+//						else 
+//						{
+//							if (i==(s.length()-1)) {
+//								s=s.substring(1);
+//								Monom m = new Monom(s);
+//								this.add(m);
+//								return;
+//							}
+//							else {
+//								for (int j = 1; j < s.length(); j++) {
+//									if (s.charAt(j) == '+' || s.charAt(j) == '-' || j==s.length()-1) {
+//										if(j==s.length()-1) {
+//											a=s.substring(1);
+//										}
+//										else {
+//										a =  s.substring(1, j);
+//										o=j;
+//										break;
+//										}
+//									}
+//								}
+//							}
+//							if (s.charAt(i) == '-')
+//								s = s.substring(i);
+//							else if (s.charAt(i)== '+')
+//								s = s.substring(o);
+//							i = 0;
+//							Monom m = new Monom(a);
+//							this.add(m);
+//						}
+//					}
+//				}
+//			}
+//			if(s.length()==1) {
+//				Monom m = new Monom(s);
+//				this.add(m);
+//			}
+//		
+//		}
+	}
+	private boolean isLegalChar(String s,int i) {
+		return s.charAt(i) >= 32 && s.charAt(i) <= 42 ||s.charAt(i)==44 || s.charAt(i) == 47 || s.charAt(i) >= 58 && s.charAt(i) <= 93 || s.charAt(i) >= 95 && s.charAt(i) <= 119 
+				|| s.charAt(i) >= 121 && s.charAt(i) <= 127;
 	}
 	@Override
 	public double f(double x) {
@@ -140,8 +151,9 @@ public class Polynom implements Polynom_able {
 		}
 		if (flag == false)
 			this.polynom.add(m1);
-	}
+		this.polynom.sort(Monom._Comp);
 
+	}
 	@Override
 
 	public void substract(Polynom_able p1) {
@@ -152,6 +164,7 @@ public class Polynom implements Polynom_able {
 			if(this.polynom.get(i).get_coefficient()==0)
 				this.polynom.remove(i);
 		}
+		this.polynom.sort(Monom._Comp);
 	}
 	@Override
 	public void multiply(Polynom_able p1) {
@@ -178,7 +191,7 @@ public class Polynom implements Polynom_able {
 	}
 	@Override
 	public boolean equals(Object p1) {
-		if(p1 instanceof Polynom_able) {
+		if(p1 instanceof Polynom_able|| p1 instanceof Polynom) {
 			polynom.sort(Monom._Comp);
 			Iterator<Monom> etiP = ((Polynom_able )p1).iteretor();
 			Iterator<Monom> etiT = this.iteretor();

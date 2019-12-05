@@ -6,17 +6,18 @@ import org.junit.jupiter.api.Test;
 
 import myMathPro.Monom;
 import myMathPro.Polynom;
+import myMathPro.Polynom_able;
 
 class PolynomTestJunit {
 
-	@Test
+	/*@Test
 	void testFunctison() {
 		fail("Not yet implemented");
-	}
+	}*/
 
 	@Test
 	void testPolynomString() {
-		Polynom p = new Polynom("3x^2+2x+1");
+		Polynom p = new Polynom("+3x^2+2x+1");
 		Polynom t = new Polynom();
 		t.add(new Monom ("3x^2"));
 		t.add(new Monom("2x"));
@@ -26,26 +27,26 @@ class PolynomTestJunit {
 
 	@Test
 	void testF() {
-		Polynom p = new Polynom("4x^3+2");
+		Polynom p = new Polynom("+4x^3+2");
 		double i = 6;
 		assertEquals(i, p.f(1));
 	}
 
 	@Test
 	void testAddPolynom_able() {
-		Polynom p = new Polynom("4x^3+2x^2-1");
-		Polynom y = new Polynom("2x^2+2");
+		Polynom p = new Polynom("+4x^3+2x^2-1");
+		Polynom y = new Polynom("+2x^2+2");
 		p.add(y);
-		Polynom t = new Polynom("4x^3+4x^2+1");
+		Polynom t = new Polynom("+4x^3+4x^2+1");
 		assertEquals(t, p);
 	}
 
 	@Test
 	void testAddMonom() {
-		Polynom p = new Polynom("4x^3+2x^2-1");
+		Polynom p = new Polynom("+4x^3+2x^2-1");
 		Monom y = new Monom("12");
 		p.add(y);
-		Polynom t = new Polynom("4x^3+2x^2+11");
+		Polynom t = new Polynom("+4x^3+2x^2+11");
 		assertEquals(t, p);
 	}
 
@@ -61,7 +62,7 @@ class PolynomTestJunit {
 	@Test
 	void testMultiplyPolynom_able() {
 		Polynom p = new Polynom("x");
-		Polynom y = new Polynom("x^2");
+		Polynom_able y = new Polynom("x^2");
 		p.multiply(y);
 		Polynom t = new Polynom("x^3");
 		assertEquals(t, p);
@@ -79,13 +80,16 @@ class PolynomTestJunit {
 
 	@Test
 	void testDerivative() {
-		fail("Not yet implemented");
+		Polynom func = new Polynom("3x^4+12x^2+7x+3");
+		Polynom_able m = func.derivative();
+		Polynom derv1 = new Polynom("12x^3+24x+7");
+		assertEquals(derv1,m);
 	}
 
-	@Test
+/*	@Test
 	void testArea() {
 		fail("Not yet implemented");
-	}
+	}*/
 
 	@Test
 	void testMultiplyMonom() {
@@ -96,7 +100,7 @@ class PolynomTestJunit {
 		assertEquals(y, p);
 	}
 
-	@Test
+/*	@Test
 	void testToString() {
 		fail("Not yet implemented");
 	}
@@ -104,6 +108,6 @@ class PolynomTestJunit {
 	@Test
 	void testInitFromString() {
 		fail("Not yet implemented");
-	}
+	}*/
 
 }

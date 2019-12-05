@@ -36,7 +36,7 @@ public class MonomTest {
 
 
 	private static void test1() {
-		Monom ab = new Monom("x");
+		Monom ab = new Monom("+3x");
 		System.out.println(ab);
 		/*System.out.println("*****  Test1:  *****");
 		String[] monoms = { "2", "3.2x^2", "0" };

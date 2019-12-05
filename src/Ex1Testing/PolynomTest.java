@@ -2,6 +2,7 @@ package Ex1Testing;
 
 import myMathPro.Monom;
 import myMathPro.Polynom;
+import myMathPro.Polynom_able;
 
 public class PolynomTest {
 	public static void main(String[] args) {
@@ -13,6 +14,17 @@ public class PolynomTest {
 		//test6(); 
 		//test7();
 		//test8();
+		test9();
+		
+	}
+	private static void test9() {
+		/*Polynom p1 = new Polynom("x^3");
+		Polynom_able p2 = new Polynom("x");
+		p1.multiply(p2);*/
+		Polynom p3 = new Polynom("3x^3+3x^2+2x^3-1");
+		p3.add(new Monom("2x^3"));
+
+		System.out.println(p3);
 	}
 	public static void test1() {
 		Polynom p1 = new Polynom("-3x^2-2x-1");

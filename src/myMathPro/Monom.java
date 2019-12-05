@@ -74,6 +74,7 @@ public class Monom implements function {
 
 		s = s.toLowerCase();
 		String a = ""; // _coefficient
+	
 		int i = 0;
 		if (s == "") { // if the string is empty
 			a = "0";
@@ -92,7 +93,7 @@ public class Monom implements function {
 			a = "1";
 		}
 		while (i < s.length() && s.charAt(i) != 'x') { // add the whole num to string
-			if (s.charAt(i) >= 32 && s.charAt(i) <= 44 || s.charAt(i) == 47 || s.charAt(i) >= 58 && s.charAt(i) <= 93
+			if ((s.charAt(i) >= 32 && s.charAt(i) <= 42 )|| s.charAt(i) == 44 || s.charAt(i) == 47 || s.charAt(i) >= 58 && s.charAt(i) <= 93
 					|| s.charAt(i) >= 95 && s.charAt(i) <= 119 || s.charAt(i) >= 121 && s.charAt(i) <= 127)
 				throw new RuntimeException("wrong input");
 			else {

@@ -52,14 +52,14 @@ class MonomTestJuint {
 		assertEquals("3.0x^5", s);
 	}
 
-	@Test
-	void testInitFromString() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	void testCopy() {
-		fail("Not yet implemented");
-	}
+//	@Test
+//	void testInitFromString() {
+//		fail("Not yet implemented");
+//	}
+//
+//	@Test
+//	void testCopy() {
+//		fail("Not yet implemented");
+//	}
 
 }
