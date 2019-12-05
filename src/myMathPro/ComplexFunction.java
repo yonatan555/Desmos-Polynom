@@ -1,5 +1,6 @@
 package myMathPro;
-
+ 
+import com.google.gson.Gson;
 import myMathPro.Operation;
 import myMathPro.Polynom;
 import myMathPro.function;
@@ -108,7 +109,7 @@ public class ComplexFunction implements complex_function {
 							if (opera.equals("comp"))this.operator = Operation.Comp;
 							c = j;
 							break;
-						}
+			 			}
 					}
 					q = s;
 					s = s.substring(0, c + 1) + q.substring(i + 1);
