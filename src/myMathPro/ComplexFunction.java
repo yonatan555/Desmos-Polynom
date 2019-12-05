@@ -1,5 +1,5 @@
 package myMathPro;
- 
+
 import com.google.gson.Gson;
 import myMathPro.Operation;
 import myMathPro.Polynom;
@@ -21,8 +21,12 @@ public class ComplexFunction implements complex_function {
 		this.right = f2;
 		this.operator = p;
 	}
-
-	public ComplexFunction(String s, Polynom f1, Polynom f2) {
+	public ComplexFunction(Operation p, function f1, Polynom p2) {
+		this.left = f1;
+		this.right = p2;
+		this.operator = p;
+	}
+	public ComplexFunction(String s, function f1, function f2) {
 		this.left = f1;
 		this.right = f2;
 		s = s.toLowerCase();
@@ -43,11 +47,37 @@ public class ComplexFunction implements complex_function {
 		if (s.equals("none"))
 			operator = Operation.None;
 	}
+	public ComplexFunction(function f1, function f2) {
+		this.left = f1;
+		this.right = f2;
+	}
+
+	public ComplexFunction(String s, Polynom f1, Polynom f2) {
+		this.left = f1;
+		this.right = f2;
+		s = s.toLowerCase();
+		if (s.equals("plus"))
+			this.operator = Operation.Plus;
+		if (s.equals("times"))
+			this.operator = Operation.Times;
+		if (s.equals("divid"))
+			this.operator = Operation.Divid;
+		if (s.equals("comp"))
+			this.operator = Operation.Comp;
+		if (s.equals("error"))
+			this.operator = Operation.Error;
+		if (s.equals("max"))
+			this.operator = Operation.Max;
+		if (s.equals("min"))
+			this.operator = Operation.Min;
+		if (s.equals("none"))
+			this.operator = Operation.None;
+	}
 
 	public ComplexFunction(Polynom p) {
 		this.left = p;
 		this.right = null;
-		operator = null;
+		this.operator = null;
 	}
 
 	@Override
@@ -75,51 +105,143 @@ public class ComplexFunction implements complex_function {
 
 	@Override
 	public function initFromString(String s) {
+		/*String p1 = "";
+		String p2 = "";
+		String opera = "";
+		s = s.toLowerCase();
+		int x = 0;
+		int y = 0;
+		int c = 0;
+		int m=0;
+		String q = "";
+		int count=0;
+		for (int i = 0; i < s.length(); i++) {
+			if(s.charAt(i)=='(') count++;
+		}
+		if (count==1) {
+			for (int i = 0; i < s.length(); i++) {
+				if(s.charAt(i)=='(') {
+					opera=s.substring(0,i);
+					m=i;
+				}
+				if(s.charAt(i)==',') {
+					p1=s.substring(m+1, i);
+					p2=s.substring(i+1,s.length()-1);
+				}
+
+			}
+			this.left=new Polynom(p1);
+			this.right=new Polynom(p2);
+			if (opera.equals("plus"))this.operator = Operation.Plus;
+			else if (opera.equals("div"))this.operator = Operation.Divid;
+			else if (opera.equals("mul"))this.operator = Operation.Times;
+			else if (opera.equals("max"))this.operator = Operation.Max;
+			else if (opera.equals("min"))this.operator = Operation.Min;
+			else if (opera.equals("comp"))this.operator = Operation.Comp;
+			else this.operator=Operation.Error;
+
+			return new ComplexFunction(this.operator,this.left,this.right);
+		}
+		else {
+			for (int i = 0; i < s.length(); i++) {
+				if (s.charAt(i) == ')') {
+					for (int j = i; j >= 0; j--) {
+						if (s.charAt(j) == ',') {
+							p2 = s.substring(j + 1, i);
+							x = j;
+						}
+						if (s.charAt(j) == '('	&& (s.charAt(j + 1) == '+' || s.charAt(j + 1) == '-' || s.charAt(j + 1) == ',')) {
+							
+							p1 = s.substring(j + 1, x);
+							y = j;
+							j--;
+						}
+						if (s.charAt(j) == '(') {
+							opera = s.substring(j + 1, y);
+							if (opera.equals("plus"))this.operator = Operation.Plus;
+							else if (opera.equals("div"))this.operator = Operation.Divid;
+							else if (opera.equals("mul"))this.operator = Operation.Times;
+							else if (opera.equals("max"))this.operator = Operation.Max;
+							else if (opera.equals("min"))this.operator = Operation.Min;
+							else if (opera.equals("comp"))this.operator = Operation.Comp;
+							else this.operator=Operation.Error;
+							c = j;
+							break;
+						}
+					}
+					q = s;
+					s = s.substring(0, c + 1) + q.substring(i + 1);
+					ComplexFunction fun = new ComplexFunction(this.operator, new Polynom(p1), new Polynom(p2));
+					return this.left = new ComplexFunction (fun, initFromString(s));
+				}
+
+			}
+		}
+		return left;*/
 		String p1 = "";
 		String p2 = "";
 		String opera = "";
 		int x = 0;
 		int y = 0;
 		int c = 0;
-		String q = "";
-		if (s == "")
-			return null;
+		int m=0;
+		s = s.toLowerCase();
+		int count=0;
+		for (int i = 0; i < s.length(); i++) {
+			if(s.charAt(i)=='(') count++;
+		}
+		if (count==1) {
+			for (int i = 0; i < s.length(); i++) {
+				if(s.charAt(i)=='(') {
+					opera=s.substring(0,i);
+					m=i;
+				}
+				if(s.charAt(i)==',') {
+					p1=s.substring(m+1, i);
+					p2=s.substring(i+1,s.length()-1);
+				}
+			}
+			this.left=new Polynom(p1);
+			this.right=new Polynom(p2);
+			if (opera.equals("plus"))this.operator = Operation.Plus;
+			else if (opera.equals("div"))this.operator = Operation.Divid;
+			else if (opera.equals("mul"))this.operator = Operation.Times;
+			else if (opera.equals("max"))this.operator = Operation.Max;
+			else if (opera.equals("min"))this.operator = Operation.Min;
+			else if (opera.equals("comp"))this.operator = Operation.Comp;
+			else this.operator=Operation.Error;
+			
+			return new ComplexFunction(this.operator,this.left,this.right);
+		}
 		else {
 			for (int i = 0; i < s.length(); i++) {
-				if (s.charAt(i) == ')') {
-					// if(i!=(s.length()-1)) {
-					for (int j = i; j >= 0; j--) {
-						if (s.charAt(j) == ',') {
-							p1 = s.substring(j + 1, i);
-							x = j;
-						}
-						if (s.charAt(j) == '('
-								&& (s.charAt(j + 1) == '+' || s.charAt(j + 1) == '-' || s.charAt(j + 1) == ',')) {
-							p2 = s.substring(j + 1, x);
-							y = j;
-							j--;
-						}
-						if (j == 0 || s.charAt(j) == '(') {
-							opera = s.substring(j + 1, y);
-							if (opera.equals("plus"))this.operator = Operation.Plus;
-							if (opera.equals("div"))this.operator = Operation.Divid;
-							if (opera.equals("tim"))this.operator = Operation.Times;
-							if (opera.equals("max"))this.operator = Operation.Max;
-							if (opera.equals("min"))this.operator = Operation.Min;
-							if (opera.equals("comp"))this.operator = Operation.Comp;
-							c = j;
-							break;
-			 			}
-					}
-					q = s;
-					s = s.substring(0, c + 1) + q.substring(i + 1);
-					ComplexFunction fun = new ComplexFunction(this.operator, new Polynom(p1), new Polynom(p2));
-					return this.left = new ComplexFunction(Operation.None, fun, initFromString(s));
+				if(s.charAt(i)=='(') {
+					opera=s.substring(0, i);
+					x=i;
+					break;
 				}
-
 			}
+			for (int i = s.length()-1; i > 0; i--) {
+				if(s.charAt(i)==',') {
+					p2=s.substring(i+1,s.length()-1);
+					c=i;
+					break;
+				}
+			}
+			
+			if (opera.equals("plus"))this.operator = Operation.Plus;
+			else if (opera.equals("div"))this.operator = Operation.Divid;
+			else if (opera.equals("mul"))this.operator = Operation.Times;
+			else if (opera.equals("max"))this.operator = Operation.Max;
+			else if (opera.equals("min"))this.operator = Operation.Min;
+			else if (opera.equals("comp"))this.operator = Operation.Comp;
+			else this.operator=Operation.Error;
+			
+			s=s.substring(x+1, c);
+			this.left=initFromString(s);
+			return new ComplexFunction(this.operator,this.left,new Polynom(p2));
 		}
-		return left;
+		
 	}
 
 	@Override
@@ -190,28 +312,40 @@ public class ComplexFunction implements complex_function {
 		String opera = "";
 		String P1 = "";
 		String P2 = "";
-		if (this.operator == Operation.Plus)
-			opera = "Plus";
-		if (this.operator == Operation.Divid)
-			opera = "Divid";
-		if (this.operator == Operation.Comp)
-			opera = "Comp";
-		if (this.operator == Operation.Error)
-			opera = "Error";
-		if (this.operator == Operation.Max)
-			opera = "Max";
-		if (this.operator == Operation.Min)
-			opera = "Min";
-		if (this.operator == Operation.None)
-			opera = "None";
-		if (this.operator == Operation.Times)
-			opera = "Times";
-		if (this.left != null)
-			P1 = this.left.toString();
-		if (this.right != null)
-			P2 = this.right.toString();
 
-		return opera + "(" + P1 + "," + P2 + ")";
+		if(this.right==null) {
+			if (this.left != null) {
+				if(this.left instanceof Polynom) {
+					Polynom p = (Polynom) this.left;
+					P1 = p.toString();
+				}
+			}
+			return P1;
+		}
+			else {
+				if (this.operator == Operation.Plus)
+					opera = "Plus";
+				if (this.operator == Operation.Divid)
+					opera = "Divid";
+				if (this.operator == Operation.Comp)
+					opera = "Comp";
+				if (this.operator == Operation.Error)
+					opera = "Error";
+				if (this.operator == Operation.Max)
+					opera = "Max";
+				if (this.operator == Operation.Min)
+					opera = "Min";
+				if (this.operator == Operation.None)
+					opera = "None";
+				if (this.operator == Operation.Times)
+					opera = "Times";
+				if (this.right != null) {
+					if(this.right instanceof Polynom) {
+						Polynom p = (Polynom) this.right;
+						P2 = p.toString();
+					}
+				}
+				return opera + "(" + this.left.toString() + "," + P2 + ")";
+			}
+		}
 	}
-
-}

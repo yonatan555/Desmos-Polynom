@@ -30,8 +30,8 @@ class Functions_GUITest {
 		 * data.drawFunctions(w,h,rx,ry,res);
 		 */
 		ComplexFunction fun = new ComplexFunction();
-		fun.initFromString("Plus(Div(-4x^2+3),3x+0.1x^4-2.3x)");
-		//System.out.println(fun);
+		fun.initFromString("Div(Plus(mul(mul(+5x^2+2x,-4x^2+3),+5x^2),+3x),+1x)");
+		System.out.println(fun);
 	}
 }
 /*

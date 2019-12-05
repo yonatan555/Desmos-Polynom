@@ -81,6 +81,7 @@ public class Monom implements function {
 			this._power = 0;
 			return;
 		}
+		
 		if (s.charAt(0) == '-') { // if the coef is '-'
 			i = 1;
 			if (s.charAt(1) == 'x')

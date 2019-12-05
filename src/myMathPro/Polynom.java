@@ -41,7 +41,7 @@ public class Polynom implements Polynom_able {
 	 */
 	public Polynom(String s) throws RuntimeException {
 		this.polynom = new ArrayList<Monom>();
-
+		int o=0;
 		if (s.length() == 0)
 			this.add(Monom.ZERO);
 		else {
@@ -75,17 +75,29 @@ public class Polynom implements Polynom_able {
 						else 
 						{
 							if (i==(s.length()-1)) {
+								s=s.substring(1);
 								Monom m = new Monom(s);
 								this.add(m);
 								return;
 							}
 							else {
-								a =  s.substring(0, i);
+								for (int j = 1; j < s.length(); j++) {
+									if (s.charAt(j) == '+' || s.charAt(j) == '-' || j==s.length()-1) {
+										if(j==s.length()-1) {
+											a=s.substring(1);
+										}
+										else {
+										a =  s.substring(1, j);
+										o=j;
+										break;
+										}
+									}
+								}
 							}
 							if (s.charAt(i) == '-')
 								s = s.substring(i);
 							else if (s.charAt(i)== '+')
-								s = s.substring(i + 1);
+								s = s.substring(o);
 							i = 0;
 							Monom m = new Monom(a);
 							this.add(m);
@@ -273,6 +285,7 @@ public class Polynom implements Polynom_able {
 		}
 	}
 	public String toString() {
+		if(this.polynom==null) return "";
 		for (int i = 0; i < this.polynom.size(); i++) {
 			if(polynom.get(i).get_coefficient()==0) polynom.remove(i);
 		}
