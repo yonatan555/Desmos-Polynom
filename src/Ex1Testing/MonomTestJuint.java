@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import myMathPro.ComplexFunction;
 import myMathPro.Monom;
 import myMathPro.Polynom;
 class MonomTestJuint {
@@ -52,14 +53,19 @@ class MonomTestJuint {
 		assertEquals("3.0x^5", s);
 	}
 
-//	@Test
-//	void testInitFromString() {
-//		fail("Not yet implemented");
-//	}
-//
-//	@Test
-//	void testCopy() {
-//		fail("Not yet implemented");
-//	}
+	@Test
+	void testInitFromString() {
+		Monom m =new Monom ();
+		 m.initFromString("3.0x^2");
+		 Monom i = new Monom ("3.0x^2");
+		assertEquals(i, m);
+	}
+
+	@Test
+	void testCopy() {
+		Monom m =new Monom ("3.0x^2");
+		 Monom i = (Monom) m.copy();
+		assertEquals(i, m);
+	}
 
 }

@@ -38,90 +38,26 @@ public class Polynom implements Polynom_able {
 	 * @param s: is a string represents a Polynom
 	 */
 	public Polynom(String s) throws RuntimeException {
+		
 		polynom = new ArrayList<Monom>();
 		
 		String[] str = s.split("(?=\\+|-)");
 		for (int i = 0; i < str.length; i++) {
-			
-			polynom.add(new Monom(str[i]));
+			if(isLegalChar(s)) {
+			this.add((new Monom(str[i])));
+			}
+			else {
+				throw new RuntimeException("char is ileagal");
+			}
 		}
-		
-		this.polynom.sort(Monom._Comp);
-		
-//		this.polynom = new ArrayList<Monom>();
-//		int o=0;
-//		if (s.length() == 0)
-//			this.add(Monom.ZERO);
-//		else {
-//			String a = "";
-//			for (int i = 0; i < s.length(); i++) {
-//				if (isLegalChar(s,i))
-//					throw new RuntimeException("wrong input");
-//				else {
-//					if (s.charAt(i) == '+' || s.charAt(i) == '-' || i == (s.length()-1)) {
-//						if (s.charAt(0) == '-') {
-//							if(i==(s.length()-1)) {
-//								Monom m = new Monom(s);
-//								this.add(m);
-//								return;
-//							}
-//							for (int j = 1; j < s.length(); j++) {
-//								if (s.charAt(j) == '+' || s.charAt(j) == '-') {
-//									a =  s.substring(0, j);
-//									if (s.charAt(j) == '-')
-//										s = s.substring(j);
-//									else
-//										s = s.substring(j+1);
-//									i = 0;
-//									Monom m = new Monom(a);
-//									this.add(m);
-//									break;
-//								}
-//							}
-//						} 
-//						else 
-//						{
-//							if (i==(s.length()-1)) {
-//								s=s.substring(1);
-//								Monom m = new Monom(s);
-//								this.add(m);
-//								return;
-//							}
-//							else {
-//								for (int j = 1; j < s.length(); j++) {
-//									if (s.charAt(j) == '+' || s.charAt(j) == '-' || j==s.length()-1) {
-//										if(j==s.length()-1) {
-//											a=s.substring(1);
-//										}
-//										else {
-//										a =  s.substring(1, j);
-//										o=j;
-//										break;
-//										}
-//									}
-//								}
-//							}
-//							if (s.charAt(i) == '-')
-//								s = s.substring(i);
-//							else if (s.charAt(i)== '+')
-//								s = s.substring(o);
-//							i = 0;
-//							Monom m = new Monom(a);
-//							this.add(m);
-//						}
-//					}
-//				}
-//			}
-//			if(s.length()==1) {
-//				Monom m = new Monom(s);
-//				this.add(m);
-//			}
-//		
-//		}
 	}
-	private boolean isLegalChar(String s,int i) {
-		return s.charAt(i) >= 32 && s.charAt(i) <= 42 ||s.charAt(i)==44 || s.charAt(i) == 47 || s.charAt(i) >= 58 && s.charAt(i) <= 93 || s.charAt(i) >= 95 && s.charAt(i) <= 119 
-				|| s.charAt(i) >= 121 && s.charAt(i) <= 127;
+	private boolean isLegalChar(String s) {
+		boolean flag =true;
+		for (int i = 0; i < s.length(); i++) {
+			if((s.charAt(i) >= 32 && s.charAt(i) <= 42) ||s.charAt(i)==44 || s.charAt(i) == 47 || s.charAt(i) >= 58 && s.charAt(i) <= 93 || s.charAt(i) >= 95 && s.charAt(i) <= 119 
+				|| s.charAt(i) >= 121 && s.charAt(i) <= 127) flag = false;
+	}
+		return flag;
 	}
 	@Override
 	public double f(double x) {
@@ -141,7 +77,6 @@ public class Polynom implements Polynom_able {
 
 	@Override
 	public void add(Monom m1) {
-		
 		Boolean flag = false;
 		for (int i = 0; i < this.polynom.size(); i++) { // adding monom to polynom
 			if (this.polynom.get(i).get_power() == m1.get_power()) {
@@ -186,7 +121,6 @@ public class Polynom implements Polynom_able {
 		}
 		this.polynom = ans.polynom;
 		this.polynom.sort(Monom._Comp);
-
 
 	}
 	@Override
@@ -312,8 +246,8 @@ public class Polynom implements Polynom_able {
 	}
 	@Override
 	public function initFromString(String s) {
-		ComplexFunction fun = new ComplexFunction(new Polynom(s));
-		return fun;
+		Polynom p = new Polynom(s);
+		return p.copy();
 	}
 	@Override
 	public boolean equals(Polynom_able p1) {

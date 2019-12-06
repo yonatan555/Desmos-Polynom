@@ -9,12 +9,6 @@ import myMathPro.Polynom;
 import myMathPro.Polynom_able;
 
 class PolynomTestJunit {
-
-	/*@Test
-	void testFunctison() {
-		fail("Not yet implemented");
-	}*/
-
 	@Test
 	void testPolynomString() {
 		Polynom p = new Polynom("+3x^2+2x+1");
@@ -86,10 +80,13 @@ class PolynomTestJunit {
 		assertEquals(derv1,m);
 	}
 
-/*	@Test
+	@Test
 	void testArea() {
-		fail("Not yet implemented");
-	}*/
+		Polynom m = new Polynom("x^2+1");
+		double i = m.area(-1,2, 0.0000001);
+		System.out.println(i);
+		assertEquals(1.0833333333374775, i);
+	}
 
 	@Test
 	void testMultiplyMonom() {
@@ -100,14 +97,19 @@ class PolynomTestJunit {
 		assertEquals(y, p);
 	}
 
-/*	@Test
+	@Test
 	void testToString() {
-		fail("Not yet implemented");
+		Polynom m = new Polynom("3x^2+55x+1");
+		String i = m.toString();
+		String j = "3.0x^2 + 55.0x + 1.0";
+		assertEquals(j, i);
 	}
 
 	@Test
 	void testInitFromString() {
-		fail("Not yet implemented");
-	}*/
+		Polynom p = new Polynom();
+		Polynom i = new Polynom("3x^2+5x+5");
+		assertEquals(i, p.initFromString("3x^2+5x+5"));
+	}
 
 }

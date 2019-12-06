@@ -7,27 +7,29 @@ import myMathPro.Polynom_able;
 public class PolynomTest {
 	public static void main(String[] args) {
 		//test1(); 
-		//test2(); 
-		//test3(); 
-		//test4(); 
-		//test5(); 
-		//test6(); 
-		//test7();
-		//test8();
-		test9();
+		/*test2(); 
+		test3(); 
+		test4(); 
+		test5(); 
+		test6(); 
+		test7();
+		test8();*/
+		//test9();
 		
 	}
 	private static void test9() {
-		/*Polynom p1 = new Polynom("x^3");
-		Polynom_able p2 = new Polynom("x");
-		p1.multiply(p2);*/
-		Polynom p3 = new Polynom("3x^3+3x^2+2x^3-1");
+		Polynom p1 = new Polynom("x^3+1");
+		Polynom p2 = new Polynom("x+2x");
+		p1.multiply(p2);
+		System.out.println(p1);
+		
+	/*	Polynom p3 = new Polynom("3x^3+3x^2+2x^3-1");
 		p3.add(new Monom("2x^3"));
 
-		System.out.println(p3);
+		System.out.println(p3);*/
 	}
 	public static void test1() {
-		Polynom p1 = new Polynom("-3x^2-2x-1");
+		Polynom p1 = new Polynom("-3x^2-1x+x^2+4x^8-5+0+1");
 		/*String[] monoms = { "3x^2 + 1" }; // test if the consrctuor is working
 		
 		Monom m1 = new Monom(monoms[0]);

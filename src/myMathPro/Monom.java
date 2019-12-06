@@ -83,13 +83,14 @@ public class Monom implements function {
 			return;
 		}
 		
-		if (s.charAt(0) == '-') { // if the coef is '-'
+		if (s.charAt(0) == '-' || s.charAt(0) == '+') { // if the coef is '-'
 			i = 1;
 			if (s.charAt(1) == 'x')
 				a = "1";
 		}
+		
 		if (s.charAt(0) == 'x') {
-			this._coefficient = 1;
+			//this._coefficient = 1;
 			a = "1";
 		}
 		while (i < s.length() && s.charAt(i) != 'x') { // add the whole num to string
@@ -103,7 +104,8 @@ public class Monom implements function {
 		}
 		if (s.charAt(0) == '-') {
 			this._coefficient = -1 * Double.parseDouble(a);
-		} else {
+		} 
+		else  {
 			this._coefficient = Double.parseDouble(a);
 		}
 		Boolean flag = false; // power
@@ -160,12 +162,18 @@ public class Monom implements function {
 	}
 
 	@Override
-	public function initFromString(String s) {
-	return  new ComplexFunction(new Polynom(s));
+	public function initFromString(String s) { 
+	Monom m = new Monom(s);
+	this._coefficient = m._coefficient;
+	this._power = m._power;
+	return this;
 	}
 	@Override
 	public function copy() {
-		return new ComplexFunction(new Polynom(this.toString()));
+		Monom m = new Monom();
+		m._coefficient=this._coefficient;
+		m._power=this._power;
+		return m;
 	}
 	// you may (always) add other methods.
 
