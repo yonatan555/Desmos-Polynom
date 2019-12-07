@@ -73,6 +73,7 @@ public class Monom implements function {
 	public Monom(String s) throws RuntimeException {
 
 		s = s.toLowerCase();
+		s=s.replaceAll(" ", "");
 		String a = ""; // _coefficient
 	
 		int i = 0;
@@ -147,6 +148,7 @@ public class Monom implements function {
 			return this._coefficient + "x";
 
 		ans = "" + this._coefficient + "x" + "^" + this._power;
+		ans = ans.replaceAll(" ", "");
 		return ans;
 	}
 

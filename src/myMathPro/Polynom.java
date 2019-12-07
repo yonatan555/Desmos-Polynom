@@ -40,7 +40,7 @@ public class Polynom implements Polynom_able {
 	public Polynom(String s) throws RuntimeException {
 		
 		polynom = new ArrayList<Monom>();
-		
+		s=s.replaceAll(" ", "");
 		String[] str = s.split("(?=\\+|-)");
 		for (int i = 0; i < str.length; i++) {
 			if(isLegalChar(s)) {
@@ -242,6 +242,7 @@ public class Polynom implements Polynom_able {
 		for (int i = 1; i < this.polynom.size(); i++) {
 			ans += " + " + polynom.get(i).toString();
 		}
+		ans = ans.replaceAll(" ", "");
 		return ans;
 	}
 	@Override

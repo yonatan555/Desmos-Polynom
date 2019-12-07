@@ -48,7 +48,7 @@ class MonomTestJuint {
 
 	@Test
 	void testToString() {
-		Monom m = new Monom ("3x^5");
+		Monom m = new Monom ("3x^ 5");
 		String s=m.toString();
 		assertEquals("3.0x^5", s);
 	}

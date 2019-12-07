@@ -101,7 +101,7 @@ class PolynomTestJunit {
 	void testToString() {
 		Polynom m = new Polynom("3x^2+55x+1");
 		String i = m.toString();
-		String j = "3.0x^2 + 55.0x + 1.0";
+		String j = "3.0x^2+55.0x+1.0";
 		assertEquals(j, i);
 	}
 

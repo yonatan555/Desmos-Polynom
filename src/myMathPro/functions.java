@@ -6,7 +6,7 @@ package myMathPro;
 import java.io.IOException;
 import java.util.Collection;
 
-import myMath.Range;
+import myMathPro.Range;
 
 public interface functions extends Collection<function>{
 	/**

@@ -1838,8 +1838,6 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
 			return keysDown.contains(keycode);
 		}
 	}
-
-
 	/**
 	 * This method cannot be called directly.
 	 */
@@ -1859,7 +1857,6 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
 			keysDown.add(e.getKeyCode());
 		}
 	}
-
 	/**
 	 * This method cannot be called directly.
 	 */
@@ -1869,10 +1866,6 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
 			keysDown.remove(e.getKeyCode());
 		}
 	}
-
-
-
-
 	/**
 	 * Test client.
 	 *

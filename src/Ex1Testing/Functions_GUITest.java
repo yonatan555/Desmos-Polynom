@@ -1,16 +1,22 @@
-package myMathPro;
+package Ex1Testing;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import Ex1.ComplexFunction;
-import Ex1.Functions_GUI;
-import Ex1.Monom;
-import Ex1.Polynom;
-import Ex1.Range;
-import Ex1.function;
+import myMathPro.ComplexFunction;
+import myMathPro.Functions_GUI;
+import myMathPro.Monom;
+import myMathPro.Polynom;
+import myMathPro.Range;
+import myMathPro.function;
 
-/*Partial JUnit+main test for the GUI_Functions class,expected output from the main:0)java.awt.Color[r=0,g=0,b=255]f(x)=plus(-1.0 x^4+2.4 x^2+3.1,+0.1 x^5-1.2999999999999998 x+5.0)1)java.awt.Color[r=0,g=255,b=255]f(x)=plus(div(+1.0 x+1.0,mul(mul(+1.0 x+3.0,+1.0 x-2.0),+1.0 x-4.0)),2.0)2)java.awt.Color[r=255,g=0,b=255]f(x)=div(plus(-1.0 x^4+2.4 x^2+3.1,+0.1 x^5-1.2999999999999998 x+5.0),-1.0 x^4+2.4 x^2+3.1)3)java.awt.Color[r=255,g=200,b=0]f(x)=-1.0 x^4+2.4 x^2+3.1 4)java.awt.Color[r=255,g=0,b=0]f(x)=+0.1 x^5-1.2999999999999998 x+5.0 5)java.awt.Color[r=0,g=255,b=0]f(x)=max(max(max(max(plus(-1.0 x^4+2.4 x^2+3.1,+0.1 x^5-1.2999999999999998 x+5.0),plus(div(+1.0 x+1.0,mul(mul(+1.0 x+3.0,+1.0 x-2.0),+1.0 x-4.0)),2.0)),div(plus(-1.0 x^4+2.4 x^2+3.1,+0.1 x^5-1.2999999999999998 x+5.0),-1.0 x^4+2.4 x^2+3.1)),-1.0 x^4+2.4 x^2+3.1),+0.1 x^5-1.2999999999999998 x+5.0)6)java.awt.Color[r=255,g=175,b=175]f(x)=min(min(min(min(plus(-1.0 x^4+2.4 x^2+3.1,+0.1 x^5-1.2999999999999998 x+5.0),plus(div(+1.0 x+1.0,mul(mul(+1.0 x+3.0,+1.0 x-2.0),+1.0 x-4.0)),2.0)),div(plus(-1.0 x^4+2.4 x^2+3.1,+0.1 x^5-1.2999999999999998 x+5.0),-1.0 x^4+2.4 x^2+3.1)),-1.0 x^4+2.4 x^2+3.1),+0.1 x^5-1.2999999999999998 x+5.0)
+/*Partial JUnit+main test for the GUI_Functions class,expected output from the main:0)java.awt.Color[r=0,g=0,b=255]
+ * f(x)=plus(-1.0 x^4+2.4 x^2+3.1,+0.1 x^5-1.2999999999999998 x+5.0)1)
+ * java.awt.Color[r=0,g=255,b=255]f(x)=plus(div(+1.0 x+1.0,mul(mul(+1.0 x+3.0,+1.0 x-2.0),+1.0 x-4.0)),2.0)2)
+ * java.awt.Color[r=255,g=0,b=255]f(x)=div(plus(-1.0 x^4+2.4 x^2+3.1,+0.1 x^5-1.2999999999999998 x+5.0),-1.0 x^4+2.4 x^2+3.1)3)
+ * java.awt.Color[r=255,g=200,b=0]f(x)=-1.0 x^4+2.4 x^2+3.1 4)java.awt.Color[r=255,g=0,b=0]f(x)=+0.1 x^5-1.2999999999999998 x+5.0 5)
+ * java.awt.Color[r=0,g=255,b=0]f(x)=max(max(max(max(plus(-1.0 x^4+2.4 x^2+3.1,+0.1 x^5-1.2999999999999998 x+5.0),plus(div(+1.0 x+1.0,mul(mul(+1.0 x+3.0,+1.0 x-2.0),+1.0 x-4.0)),2.0)),div(plus(-1.0 x^4+2.4 x^2+3.1,+0.1 x^5-1.2999999999999998 x+5.0),-1.0 x^4+2.4 x^2+3.1)),-1.0 x^4+2.4 x^2+3.1),+0.1 x^5-1.2999999999999998 x+5.0)6)
+ * java.awt.Color[r=255,g=175,b=175]f(x)=min(min(min(min(plus(-1.0 x^4+2.4 x^2+3.1,+0.1 x^5-1.2999999999999998 x+5.0),plus(div(+1.0 x+1.0,mul(mul(+1.0 x+3.0,+1.0 x-2.0),+1.0 x-4.0)),2.0)),div(plus(-1.0 x^4+2.4 x^2+3.1,+0.1 x^5-1.2999999999999998 x+5.0),-1.0 x^4+2.4 x^2+3.1)),-1.0 x^4+2.4 x^2+3.1),+0.1 x^5-1.2999999999999998 x+5.0)
 
 @author
 boaz_benmoshe*/

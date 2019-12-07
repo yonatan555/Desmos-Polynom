@@ -17,7 +17,9 @@ public class Range {
 	}
 	public String toString() {
 		String ans = "["+this.get_min()+","+this.get_max()+"]";
-		if(this.isEmpty()) {ans = "Empty Range";}
+		if(this.isEmpty()) {
+			ans = "Empty Range"
+					;}
 		return ans;
 	}
 	public boolean isEmpty() {
