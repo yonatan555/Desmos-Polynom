@@ -1,5 +1,8 @@
 package Ex1Testing;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -24,23 +27,20 @@ boaz_benmoshe*/
 class Functions_GUITest {
 	public static void main(String[] a) {
 
-		Functions_GUI data = FunctionsFactory();
-		int w = 1000, h = 600, res = 200;
-		Range rx = new Range(-10, 10);
-		Range ry = new Range(-5, 15);
-		data.drawFunctions(w, h, rx, ry, res);
-
+		/*
+		 * Functions_GUI data = FunctionsFactory(); int w = 1000, h = 600, res = 200;
+		 * Range rx = new Range(-10, 10); Range ry = new Range(-5, 15);
+		 * data.drawFunctions(w, h, rx, ry, res);
+		 */
 		ComplexFunction fun = new ComplexFunction();
-		fun.initFromString("plus(div(mul(div(+5x^2+2x,-4x^2+3),+5x^2),4x),3x)");
+		fun.initFromString("comp(div(+5x^2+2x,-4x^2+3),3)");
 		System.out.println(fun);
-	}}
+	}
 
 	private Functions_GUI _data = null;
 
 	@BeforeAll
-	static void
-
-			setUpBeforeClass() throws Exception {
+	static void setUpBeforeClass() throws Exception {
 	}
 
 	@BeforeEach
@@ -65,13 +65,13 @@ class Functions_GUITest {
 
 	@Test
 	void testDrawFunctions() {
-		_data.drawFunctions();
+		_data.drawFunctions(null);
 		fail("Not yet implemented");
 	}
 
 	@Test
 	void testDrawFunctionsIntIntRangeRangeInt() {
-		_data.drawFunctions();
+		_data.drawFunctions(null);
 		fail("Not yet implemented");
 	}
 
