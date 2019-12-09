@@ -85,7 +85,7 @@ public class Functions_GUI implements functions {
 	@Override
 	public void initFromFile(String file) throws IOException {
 		try {
-			FileReader fr = new FileReader("GUI_params.txt"); 
+			FileReader fr = new FileReader(file); 
 			BufferedReader br = new BufferedReader (fr);
 			while(br.ready()) 
 	        { 

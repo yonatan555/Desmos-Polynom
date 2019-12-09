@@ -242,11 +242,11 @@ public class ComplexFunction implements complex_function {
 		return ans;
 	}
 
-	public boolean equals(Object m) { // equals function will return true if f(x) will return the same value in 5
-		// different points
+	public boolean equals(Object m) { // equals function will return true if f(x) will return the same value in 10 different points
+		
 		if (m instanceof function) {
 			int counter = 0;
-			for (int i = 0; i < 10; i++) {
+			for (int i = 1; i < 11; i++) {
 				if (this.f(i) == ((function) m).f(i))
 					counter++;
 			}

@@ -35,18 +35,15 @@ class Functions_GUITest {
 		 * Range rx = new Range(-10, 10); Range ry = new Range(-5, 15);
 		 * data.drawFunctions(w, h, rx, ry, res);
 		 */
-		
-		//Functions_GUI m = new Functions_GUI();
-	//	m.initFromFile("GUI_params(1)");
-				
-		
-		
-		ComplexFunction fun = new ComplexFunction();
+		Functions_GUI m = new Functions_GUI();
+		m.initFromFile("GUI_params.txt");
+		m.initFromFile("Functions_GUITest.txt");
+		/*ComplexFunction fun = new ComplexFunction();
 		
 		System.out.println(fun.initFromString("plus(div(+5x^2+2x,-4x^2+3),div(4x,x))"));
 		ComplexFunction x = new ComplexFunction();
 		function y = x.initFromString("comp(div(+5x^2+2x,-4x^2+3),comp(div(x,x^2),div(5x,2x^2+1)))");
-		System.out.println(y.f(0));
+		System.out.println(y.f(0));*/
 	}
 
 	private Functions_GUI _data = null;
