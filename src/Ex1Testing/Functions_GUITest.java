@@ -2,6 +2,9 @@ package Ex1Testing;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
+import java.io.File;
+import java.io.IOException;
+
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -25,22 +28,32 @@ import myMathPro.function;
 boaz_benmoshe*/
 
 class Functions_GUITest {
-	public static void main(String[] a) {
+	public static void main(String[] a) throws IOException {
 
 		/*
 		 * Functions_GUI data = FunctionsFactory(); int w = 1000, h = 600, res = 200;
 		 * Range rx = new Range(-10, 10); Range ry = new Range(-5, 15);
 		 * data.drawFunctions(w, h, rx, ry, res);
 		 */
+		
+		//Functions_GUI m = new Functions_GUI();
+	//	m.initFromFile("GUI_params(1)");
+				
+		
+		
 		ComplexFunction fun = new ComplexFunction();
-		fun.initFromString("comp(div(+5x^2+2x,-4x^2+3),3)");
-		System.out.println(fun);
+		
+		System.out.println(fun.initFromString("plus(div(+5x^2+2x,-4x^2+3),div(4x,x))"));
+		ComplexFunction x = new ComplexFunction();
+		function y = x.initFromString("comp(div(+5x^2+2x,-4x^2+3),comp(div(x,x^2),div(5x,2x^2+1)))");
+		System.out.println(y.f(0));
 	}
 
 	private Functions_GUI _data = null;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
+		
 	}
 
 	@BeforeEach
@@ -99,9 +112,9 @@ class Functions_GUITest {
 		function cf5 = cf4.initFromString(s1);
 		function cf6 = cf4.initFromString(s2);
 		ans.add(cf5.copy());
-		ans.add(cf6.copy());
-		ComplexFunction max = new ComplexFunction(ans.get(0).copy());
-		ComplexFunction min = new ComplexFunction(ans.get(0).copy());
+		ans.add(cf6.copy());/*
+		ComplexFunction max = new ComplexFunction(ans..copy());
+		ComplexFunction min = new ComplexFunction(ans.get(0).copy());*/
 		for (int i = 1; i < ans.size(); i++) {
 			max.max(ans.get(i));
 			min.min(ans.get(i));

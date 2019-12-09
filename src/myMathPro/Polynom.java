@@ -74,20 +74,24 @@ public class Polynom implements Polynom_able {
 			this.add(ite.next());
 		}
 	}
-
 	@Override
 	public void add(Monom m1) {
 		Boolean flag = false;
-		for (int i = 0; i < this.polynom.size(); i++) { // adding monom to polynom
+		for (int i = 0; i < this.polynom.size(); i++) { 	// adding monom to polynom
 			if (this.polynom.get(i).get_power() == m1.get_power()) {
 				this.polynom.get(i).add(m1);
 				flag = true;
 			}
 		}
+		for (int i = 0; i < this.polynom.size(); i++) {
+			if (this.polynom.get(i).get_coefficient() == 0) {
+				this.polynom.remove(i);
+			}
+		}
 		if (flag == false)
 			this.polynom.add(m1);
+		
 		this.polynom.sort(Monom._Comp);
-
 	}
 	@Override
 
@@ -108,6 +112,7 @@ public class Polynom implements Polynom_able {
 
 		for (int i = 0 ; i<this.polynom.size();i++) {
 			Iterator<Monom> it = p1.iteretor();
+			
 			while (it.hasNext()) {
 				Monom m = new Monom("1");
 				m.multipy(it.next());
@@ -115,6 +120,7 @@ public class Polynom implements Polynom_able {
 				ans.add(m);
 			}
 		}
+		
 		for (int i = 0; i < ans.polynom.size(); i++) {
 			if(ans.polynom.get(i).get_coefficient()==0)
 				ans.polynom.remove(i);
@@ -233,6 +239,7 @@ public class Polynom implements Polynom_able {
 	}
 	public String toString() {
 		if(this.polynom==null) return "";
+		
 		for (int i = 0; i < this.polynom.size(); i++) {
 			if(polynom.get(i).get_coefficient()==0) polynom.remove(i);
 		}
