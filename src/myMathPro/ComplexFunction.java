@@ -52,9 +52,10 @@ public class ComplexFunction implements complex_function {
 
 	@Override
 	public double f(double x) {
-		if (this.right == null) {
+		if (this.right == null){
 			return this.left.f(x);
-		} else {
+		} 
+		else {
 			double left1 = this.left.f(x);
 			double right1 = this.right.f(x);
 
@@ -69,7 +70,7 @@ public class ComplexFunction implements complex_function {
 					return this.left.f(x);
 				}
 				return this.left.f((this.right.f(x)));
-			}
+				}
 			if (this.operator == Operation.Max)
 				return Math.max(left1, right1);
 			if (this.operator == Operation.Min)
@@ -79,7 +80,6 @@ public class ComplexFunction implements complex_function {
 			return 0;
 		}
 	}
-
 	@Override
 	public function initFromString(String s) {
 		s = s.replaceAll(" ", "");

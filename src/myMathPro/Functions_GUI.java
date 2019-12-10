@@ -2,8 +2,10 @@ package myMathPro;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -14,7 +16,6 @@ public class Functions_GUI implements functions {
 
 	public Functions_GUI() {
 		this.tab = new ArrayList<function>();
-		this.tab.add(new ComplexFunction());
 	}
 
 	@Override
@@ -83,34 +84,62 @@ public class Functions_GUI implements functions {
 	}
 
 	@Override
-	public void initFromFile(String file) throws IOException {
+	public void initFromFile(String file) throws IOException { //add Exce if the function isnt right
 		try {
 			FileReader fr = new FileReader(file); 
 			BufferedReader br = new BufferedReader (fr);
-			while(br.ready()) 
-	        { 
-	            System.out.println(br.readLine());   	 
-			}
+			System.out.println("The functions have read");
+			while(br.ready()){ 
+				
+				ComplexFunction cf = new ComplexFunction();
+				function y = cf.initFromString(br.readLine());
+				System.out.println("f(x)= "+ y);
+				this.add(y);
+				
+	        }
+			br.close();
 		} catch (Exception e) {
-			System.out.println("coulndt find the file");
+			System.out.println("coulndt find the file/ entered a wrong f(x)");
 		}
 	}
 
 	@Override
 	public void saveToFile(String file) throws IOException {
-		// TODO Auto-generated method stub
+		try {
+		String fileName = file;
+		PrintWriter pw = new PrintWriter(new File(fileName));
+		String userName="";
+		System.out.println("enter functions u want to push 1 by 1");
+		System.out.println("to finish enter: end ");
+		while(!userName.equals("end")) {
+			StringBuilder sb = new StringBuilder();
+		Scanner x = new Scanner(System.in);
+		 System.out.print("Enter f(x): ");
+		 userName = x.nextLine();
+		sb.append(userName);
+		pw.write(sb.toString());
+		pw.println();
+		}
+		pw.close();
+
+		}
+		catch (FileNotFoundException e) 
+		{
+			e.printStackTrace();
+			return;
+		}
 
 	}
-
 	@Override
 	public void drawFunctions(int width, int height, Range rx, Range ry, int resolution) {
-		// TODO Auto-generated method stub
-
+		StdDraw.setCanvasSize(width, height);
+		
+		
 	}
 
 	@Override
 	public void drawFunctions(String json_file) {
-		// TODO Auto-generated method stub
+		
 
 	}
 
