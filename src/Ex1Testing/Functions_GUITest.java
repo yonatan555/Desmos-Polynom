@@ -31,7 +31,7 @@ import myMathPro.functions;
  *
  */
 class Functions_GUITest {
-	
+	private functions _data=null;
 	public static void main(String[] a) throws IOException {
 
 		/*
@@ -41,10 +41,13 @@ class Functions_GUITest {
 		 */
 		
 		Functions_GUI m = new Functions_GUI();
+		ComplexFunction e  = new ComplexFunction("div",new ComplexFunction(new Polynom("4x^2")),new ComplexFunction("mul",new Polynom("x"),new Polynom("x^7")));
+		System.out.println(e.f(0));
+		
+		
 		//m.initFromFile("Functions_GUITest.txt");
 		//m.saveToFile("txt");
 		/*ComplexFunction fun = new ComplexFunction();
-		
 		System.out.println(fun.initFromString("plus(div(+5x^2+2x,-4x^2+3),div(4x,x))"));
 		ComplexFunction x = new ComplexFunction();
 		function y = x.initFromString("comp(div(+5x^2+2x,-4x^2+3),comp(div(x,x^2),div(5x,2x^2+1)))");
@@ -56,7 +59,7 @@ class Functions_GUITest {
 	//	int w=1000, h=600, res=200;
 	//	Range rx = new Range(-10,10);
 	//	Range ry = new Range(-5,15);
-//		data.drawFunctions(w,h,rx,ry,res);
+	//	data.drawFunctions(w,h,rx,ry,res);
 		String file = "function_file.txt";
 		String file2 = "function_file2.txt";
 		try {
@@ -65,12 +68,11 @@ class Functions_GUITest {
 			data2.initFromFile(file);
 			data.saveToFile(file2);
 		}
-		catch(Exception e) {e.printStackTrace();}
-		
+		catch(Exception e) {e.printStackTrace();}		
 		String JSON_param_file = "GUI_params.txt";
 		data.drawFunctions(JSON_param_file);
 	}*/
-	private functions _data=null;
+	
 //	@BeforeAll
 //	static void setUpBeforeClass() throws Exception {
 //	}

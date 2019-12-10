@@ -18,30 +18,37 @@ public class ComplexFunction implements complex_function {
 	public ComplexFunction(Operation p, function f1, function f2) {
 		this.left = f1;
 		this.right = f2;
-		this.operator = p;
+		this.operator = p;	
 	}
 
 	public ComplexFunction(String s, function f1, function f2) {
 		this.left = f1;
 		this.right = f2;
+		
 		s = s.toLowerCase();
 		s = s.replaceAll(" ", "");
+		
 		if (s.equals("plus"))
 			operator = Operation.Plus;
 		if (s.equals("mul"))
 			operator = Operation.Times;
 		if (s.equals("div"))
 			operator = Operation.Divid;
-		if (s.equals("comp"))
+		if (s.equals("comp")) 
 			operator = Operation.Comp;
-		if (s.equals("error"))
-			operator = Operation.Error;
 		if (s.equals("max"))
 			operator = Operation.Max;
 		if (s.equals("min"))
 			operator = Operation.Min;
-		if (s.equals("none"))
+		if (s.equals("none")) 
 			operator = Operation.None;
+		if (s.equals("error")) {
+			throw new ExceptionInInitializerError("The input couldnt be intilaized");
+		}
+		if (!(s.equals("plus")) && !(s.equals("div")) && !(s.equals("comp")) && !(s.equals("error"))
+				&& !(s.equals("max")) && !(s.equals("min")) && !(s.equals("none")) && !(s.equals("mul"))) {
+			throw new ExceptionInInitializerError("The input couldnt be got");
+		}
 	}
 
 	public ComplexFunction(function f1) {
@@ -52,25 +59,27 @@ public class ComplexFunction implements complex_function {
 
 	@Override
 	public double f(double x) {
-		if (this.right == null){
+		if (this.right == null) {
 			return this.left.f(x);
-		} 
-		else {
+		} else {
 			double left1 = this.left.f(x);
 			double right1 = this.right.f(x);
-
 			if (this.operator == Operation.Plus)
 				return left1 + right1;
 			if (this.operator == Operation.Times)
 				return left1 * right1;
-			if (this.operator == Operation.Divid)
+			if (this.operator == Operation.Divid) {					   // if right value is 0 it will be -infinite/infinite
+				if ((this.left.f(x) == 0) && (this.right.f(x) == 0)) { // if the both values are equal to 0
+					throw new ArithmeticException("Not defiend 0/0");
+				}
 				return left1 / right1;
+			}
 			if (this.operator == Operation.Comp) {
 				if (this.right == null) {
 					return this.left.f(x);
 				}
 				return this.left.f((this.right.f(x)));
-				}
+			}
 			if (this.operator == Operation.Max)
 				return Math.max(left1, right1);
 			if (this.operator == Operation.Min)
@@ -80,6 +89,7 @@ public class ComplexFunction implements complex_function {
 			return 0;
 		}
 	}
+
 	@Override
 	public function initFromString(String s) {
 		s = s.replaceAll(" ", "");
@@ -242,8 +252,9 @@ public class ComplexFunction implements complex_function {
 		return ans;
 	}
 
-	public boolean equals(Object m) { // equals function will return true if f(x) will return the same value in 10 different points
-		
+	public boolean equals(Object m) { // equals function will return true if f(x) will return the same value in 10
+		// different points
+
 		if (m instanceof function) {
 			int counter = 0;
 			for (int i = 1; i < 11; i++) {

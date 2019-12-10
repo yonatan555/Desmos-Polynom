@@ -6,7 +6,7 @@ public class aviTest {
 
 	public static void main(String[] args) {
 		Functions_GUI m = new Functions_GUI();
-		ComplexFunction a = new ComplexFunction("plus",new Polynom("4x^2"),new Polynom("2"));
+		ComplexFunction a = new ComplexFunction("min",new Polynom("4x^2"),new Polynom("2"));
 		a.plus(new Polynom("x^3"));
 		a.comp(new Polynom("x"));
 		a.plus(new Polynom("3x+1"));
@@ -22,10 +22,13 @@ public class aviTest {
 		}
 		int w=1000, h=600, res=200;
 		Range rx = new Range(-10,10);
-		Range ry = new Range(-5,15);
+		Range ry = new Range(-5,10);
 		m.drawFunctions(w, h, rx, ry, res);
-	
-	
+		
 	}
-
 }
+
+
+
+
+
