@@ -139,16 +139,15 @@ public class Functions_GUI implements functions {
 		StdDraw.setXscale(rx.get_min(), rx.get_max());
 		StdDraw.setYscale(ry.get_min(), ry.get_max());
 		
-		double maxY = 2.0, minY = -2.0;
-		// the function y = sin(4x), sampled at n+1 points
-		// between x = 0 and x = pi
 		double[] x = new double[resolution+1];
 		double[][] y = new double[tab.size()][resolution+1];
+		
+		for (int i = 0; i < y.length; i++) {
+		}
 	
 		
 		
 		StdDraw.setPenColor(Color.LIGHT_GRAY);
-		
 		
 		
 		for (double i = rx.get_min(); i < Math.abs( rx.get_min() - rx.get_max())  ; i++) {
@@ -157,18 +156,27 @@ public class Functions_GUI implements functions {
 		for (double i = ry.get_min(); i < Math.abs( ry.get_min() - ry.get_max())  ; i++) {
 			StdDraw.line(rx.get_min(), ry.get_min()+i , rx.get_max(), ry.get_min()+i);
 		}
+		StdDraw.setPenColor(Color.BLACK);
+		StdDraw.getFont();
+		StdDraw.line(rx.get_min()+(Math.abs( rx.get_min() - rx.get_max()))/2, ry.get_min(), rx.get_min()+(Math.abs( rx.get_min() - rx.get_max()))/2, ry.get_max());
+		StdDraw.line(rx.get_min(), ry.get_min()+(Math.abs( ry.get_min() - ry.get_max()))/2 , rx.get_max(), ry.get_min()+(Math.abs( ry.get_min() - ry.get_max()))/2);
 		
-		
-		//StdDraw.setXscale(min, max);
-	//	StdDraw.line(x0, y0, x1, y1);
-		
-		
-		
+		for (double i = rx.get_min(); i < Math.abs( rx.get_min() - rx.get_max())  ; i++) {
+			StdDraw.line(rx.get_min(), ry.get_min(), rx.get_min(), ry.get_max());
+		}
 	}
 
 	@Override
 	public void drawFunctions(String json_file) {
 
+	}
+	
+	public String toString() {
+		String ans = "[";
+		for (int i = 0; i< this.size();i++) {
+			ans+=this.tab.get(i).toString()+",";
+		}
+		return ans + "]";
 	}
 
 }

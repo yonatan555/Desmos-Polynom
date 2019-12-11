@@ -2,13 +2,7 @@ package myMathPro;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.concurrent.ExecutionException;
-import java.util.function.Predicate;
-
-import org.hamcrest.core.IsInstanceOf;
-import org.omg.CORBA.TIMEOUT;
-
-import myMath.Monom;
+import myMathPro.Monom;
 
 /**
  * This class represents a Polynom with add, multiply functionality, it also
@@ -38,7 +32,7 @@ public class Polynom implements Polynom_able {
 	 * @param s: is a string represents a Polynom
 	 */
 	public Polynom(String s) throws RuntimeException {
-		
+		if(s=="") throw new RuntimeException("Empty string");
 		polynom = new ArrayList<Monom>();
 		s=s.replaceAll(" ", "");
 		String[] str = s.split("(?=\\+|-)");
@@ -55,7 +49,7 @@ public class Polynom implements Polynom_able {
 		boolean flag =true;
 		for (int i = 0; i < s.length(); i++) {
 			if((s.charAt(i) >= 32 && s.charAt(i) <= 42) ||s.charAt(i)==44 || s.charAt(i) == 47 || s.charAt(i) >= 58 && s.charAt(i) <= 93 || s.charAt(i) >= 95 && s.charAt(i) <= 119 
-				|| s.charAt(i) >= 121 && s.charAt(i) <= 127) flag = false;
+				|| s.charAt(i) >= 121 && s.charAt(i) <= 127 ) flag = false;
 	}
 		return flag;
 	}

@@ -34,15 +34,17 @@ class Functions_GUITest {
 	private functions _data=null;
 	public static void main(String[] a) throws IOException {
 
+		
 		/*
-		 * Functions_GUI data = FunctionsFactory(); int w = 1000, h = 600, res = 200;
-		 * Range rx = new Range(-10, 10); Range ry = new Range(-5, 15);
+		 * Functions_GUI data = (Functions_GUI) FunctionsFactory(); int w = 1000, h =
+		 * 600, res = 200; Range rx = new Range(-10, 10); Range ry = new Range(-5, 15);
 		 * data.drawFunctions(w, h, rx, ry, res);
 		 */
+		 
 		
-		Functions_GUI m = new Functions_GUI();
-		ComplexFunction e  = new ComplexFunction("div",new ComplexFunction(new Polynom("4x^2")),new ComplexFunction("mul",new Polynom("x"),new Polynom("x^7")));
-		System.out.println(e.f(0));
+//		Functions_GUI m = new Functions_GUI();
+//		ComplexFunction e  = new ComplexFunction("div",new ComplexFunction(new Polynom("4x^2")),new ComplexFunction("mul",new Polynom("x"),new Polynom("x^7")));
+//		System.out.println(e.f(0));
 		
 		
 		//m.initFromFile("Functions_GUITest.txt");
@@ -53,29 +55,26 @@ class Functions_GUITest {
 		function y = x.initFromString("comp(div(+5x^2+2x,-4x^2+3),comp(div(x,x^2),div(5x,2x^2+1)))");
 		System.out.println(y.f(0));*/
 		//FunctionsFactory();
-	}
-		
-	/*	functions data = FunctionsFactory();
-	//	int w=1000, h=600, res=200;
-	//	Range rx = new Range(-10,10);
-	//	Range ry = new Range(-5,15);
-	//	data.drawFunctions(w,h,rx,ry,res);
-		String file = "function_file.txt";
-		String file2 = "function_file2.txt";
-		try {
-			data.saveToFile(file);
-			Functions_GUI data2 = new Functions_GUI();
-			data2.initFromFile(file);
-			data.saveToFile(file2);
-		}
-		catch(Exception e) {e.printStackTrace();}		
-		String JSON_param_file = "GUI_params.txt";
-		data.drawFunctions(JSON_param_file);
-	}*/
 	
-//	@BeforeAll
-//	static void setUpBeforeClass() throws Exception {
-//	}
+		
+		functions data = FunctionsFactory();
+		/*
+		 * int w=1000, h=600, res=200; Range rx = new Range(-10,10); Range ry = new
+		 * Range(-5,15); data.drawFunctions(w,h,rx,ry,res); String file =
+		 * "function_file.txt"; String file2 = "function_file2.txt"; try {
+		 * data.saveToFile(file); Functions_GUI data2 = new Functions_GUI();
+		 * data2.initFromFile(file); data.saveToFile(file2); } catch(Exception e)
+		 * {e.printStackTrace();}
+		 * 
+		 * String JSON_param_file = "GUI_params.txt";
+		 * data.drawFunctions(JSON_param_file);
+		 */
+	}
+	
+	//@BeforeAll
+	static void setUpBeforeClass() throws Exception {
+		
+	}
 
 	@BeforeEach
 	void setUp() throws Exception {
@@ -89,7 +88,7 @@ class Functions_GUITest {
 
 	//@Test
 	void testInitFromFile() {
-	//	fail("Not yet implemented");
+	
 	}
 
 	//@Test
@@ -123,11 +122,14 @@ class Functions_GUITest {
 		}
 		System.out.println(cf3);
 		ComplexFunction cf = new ComplexFunction(Operation.Plus, p1,p2);
+		System.out.println(cf);
 		ComplexFunction cf4 = new ComplexFunction("div", new Polynom("x +1"),cf3);
 		System.out.println(cf4);
 		cf4.plus(new Monom("2"));
+		System.out.println(cf4);
 		System.out.println(ans.size());//0
 		ans.add(cf.copy());
+		System.out.println(ans);
 		System.out.println(ans.size());//1
 		ans.add(cf4.copy());
 		System.out.println(ans.size());//2

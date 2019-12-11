@@ -18,7 +18,10 @@ public class ComplexFunction implements complex_function {
 	public ComplexFunction(Operation p, function f1, function f2) {
 		this.left = f1;
 		this.right = f2;
-		this.operator = p;	
+		if(p==operator.Error) {
+			throw new ExceptionInInitializerError("The input couldnt be intilaized");
+		}
+		else this.operator = p;	
 	}
 
 	public ComplexFunction(String s, function f1, function f2) {
@@ -27,7 +30,7 @@ public class ComplexFunction implements complex_function {
 		
 		s = s.toLowerCase();
 		s = s.replaceAll(" ", "");
-		
+		if (s.equals("")) throw new RuntimeException("Empty string");
 		if (s.equals("plus"))
 			operator = Operation.Plus;
 		if (s.equals("mul"))
@@ -93,6 +96,7 @@ public class ComplexFunction implements complex_function {
 	@Override
 	public function initFromString(String s) {
 		s = s.replaceAll(" ", "");
+		if(s.equals("")) throw new RuntimeException("Empty string");
 		s = s.toLowerCase();
 		String f1 = "";
 		String f2 = "";

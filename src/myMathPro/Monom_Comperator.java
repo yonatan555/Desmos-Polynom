@@ -2,7 +2,7 @@ package myMathPro;
 
 import java.util.Comparator;
 
-import myMath.Monom;
+import myMathPro.Monom;
 
 public class Monom_Comperator implements Comparator<Monom> {
 

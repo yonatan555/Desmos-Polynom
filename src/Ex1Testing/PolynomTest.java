@@ -16,6 +16,9 @@ public class PolynomTest {
 		test8();*/
 		//test9();
 		
+		Polynom p = new Polynom("");
+		System.out.println(p);
+		
 	}
 	private static void test9() {
 		Polynom p1 = new Polynom("x^3+1");
