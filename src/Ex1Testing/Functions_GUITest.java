@@ -122,11 +122,8 @@ class Functions_GUITest {
 		}
 		System.out.println(cf3);
 		ComplexFunction cf = new ComplexFunction(Operation.Plus, p1,p2);
-		System.out.println(cf);
 		ComplexFunction cf4 = new ComplexFunction("div", new Polynom("x +1"),cf3);
-		System.out.println(cf4);
 		cf4.plus(new Monom("2"));
-		System.out.println(cf4);
 		System.out.println(ans.size());//0
 		ans.add(cf.copy());
 		System.out.println(ans);
