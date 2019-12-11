@@ -234,14 +234,17 @@ public class Polynom implements Polynom_able {
 	public String toString() {
 		if(this.polynom==null) return "";
 		
-		for (int i = 0; i < this.polynom.size(); i++) {
-			if(polynom.get(i).get_coefficient()==0) polynom.remove(i);
-		}
+		/*
+		 * for (int i = 0; i < this.polynom.size(); i++) {
+		 * if(polynom.get(i).get_coefficient()==0) polynom.remove(i); }
+		 */
 		polynom.sort(Monom._Comp);
 		String ans = "";
 		ans =  polynom.get(0).toString();
 		for (int i = 1; i < this.polynom.size(); i++) {
-			ans += " + " + polynom.get(i).toString();
+			if(polynom.get(i).get_coefficient()==0);
+			else if(polynom.get(i).get_coefficient()<0) ans += polynom.get(i).toString();
+			else ans += " + " + polynom.get(i).toString();
 		}
 		ans = ans.replaceAll(" ", "");
 		return ans;

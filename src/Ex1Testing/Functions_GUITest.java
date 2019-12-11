@@ -12,6 +12,7 @@ import myMathPro.Monom;
 import myMathPro.Operation;
 import myMathPro.Polynom;
 import myMathPro.Range;
+import myMathPro.complex_function;
 import myMathPro.function;
 import myMathPro.functions;
 /**
@@ -32,7 +33,38 @@ import myMathPro.functions;
  */
 class Functions_GUITest {
 	private functions _data=null;
+	
+	public static void test1() {
+		String s = " plus(div(+1.0x +1.0,mul(mul(+1.0x +3.0,+1.0x -2.0),+1.0x - 4.0)),2.0)";
+		ComplexFunction m = new ComplexFunction("plus",new Polynom("5x"),new Polynom("2x"));
+		function y = m.initFromString(s);
+		m.plus(new Polynom("2x^5"));
+		m.mul(new Polynom("-x"));
+		m.max(new Polynom("2"));
+		m.div(new Polynom("0"));
+		function n = m.copy();
+		System.out.println(n);
+		System.out.println(m.equals(n));
+		System.out.println(m.f(2));
+		System.out.println(m);
+		System.out.println(y);
+		Polynom p = new Polynom("5x^2+0");
+		System.out.println(p);
+	}
+	
+	public static void test2() {
+		String [] arr = {"7x+1","2x^2-5x","2","x^4-8"};
+		Polynom p = new Polynom(arr[0]);
+		ComplexFunction cf = new ComplexFunction(p);
+		for (int i = 1; i < arr.length; i++) {
+			cf.plus(new Polynom(arr[i]));
+		}
+		System.out.println(cf);
+	}
 	public static void main(String[] a) throws IOException {
+		
+		//test1();
+		test2();
 
 		
 		/*
@@ -57,7 +89,7 @@ class Functions_GUITest {
 		//FunctionsFactory();
 	
 		
-		functions data = FunctionsFactory();
+		//functions data = FunctionsFactory();
 		/*
 		 * int w=1000, h=600, res=200; Range rx = new Range(-10,10); Range ry = new
 		 * Range(-5,15); data.drawFunctions(w,h,rx,ry,res); String file =

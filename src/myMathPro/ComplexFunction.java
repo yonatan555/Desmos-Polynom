@@ -27,7 +27,7 @@ public class ComplexFunction implements complex_function {
 	public ComplexFunction(String s, function f1, function f2) {
 		this.left = f1;
 		this.right = f2;
-		
+
 		s = s.toLowerCase();
 		s = s.replaceAll(" ", "");
 		if (s.equals("")) throw new RuntimeException("Empty string");
@@ -245,28 +245,26 @@ public class ComplexFunction implements complex_function {
 
 	public String toString() {
 		if (this.right == null) {
-			if (this.left == null)
-				return "";
-			else
-				return this.left.toString();
+			if (this.left == null) throw new RuntimeException("Empty string");
+			else return this.left.toString();
 		}
+		
 		String oper = getOperation();
 		String ans = oper + "(" + this.left.toString() + "," + this.right.toString() + ")";
 		ans = ans.replaceAll(" ", "");
 		return ans;
+		
 	}
 
 	public boolean equals(Object m) { // equals function will return true if f(x) will return the same value in 10
 		// different points
 
 		if (m instanceof function) {
-			int counter = 0;
-			for (int i = 1; i < 11; i++) {
-				if (this.f(i) == ((function) m).f(i))
-					counter++;
+			for (double i = 1; i <= 5; i+=0.1) {
+				if (this.f(i) != ((function) m).f(i))
+					return false;
 			}
-			if (counter == 10)
-				return true;
+			return true;
 		}
 		return false;
 	}
