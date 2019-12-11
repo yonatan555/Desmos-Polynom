@@ -6,15 +6,16 @@ public class aviTest {
 
 	public static void main(String[] args) {
 		Functions_GUI m = new Functions_GUI();
-		ComplexFunction a = new ComplexFunction("min",new Polynom("4x^2"),new Polynom("2"));
-		a.plus(new Polynom("x^3"));
-		a.comp(new Polynom("x"));
+		ComplexFunction a = new ComplexFunction("min",new Polynom("4x^3"),new Polynom("2"));
+		a.plus(new Polynom("x^2"));
+		a.comp(new Polynom("1"));
 		a.plus(new Polynom("3x+1"));
-		Polynom b = new Polynom("3x");
-		Monom c = new Monom("4x^2");
+		Polynom b = new Polynom("x");
+		Monom c = new Monom("x^3");
 		m.add(a);
 		m.add(b);
 		m.add(c);
+		
 		
 		Iterator<function> d = m.iterator();
 		while(d.hasNext()) {
