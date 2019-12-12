@@ -138,6 +138,7 @@ public class Functions_GUI implements functions {
 			StdDraw.line(rx.get_min(), ry.get_min() + i, rx.get_max(), ry.get_min() + i);
 		}
 		StdDraw.setPenColor(Color.BLACK);
+		
 		StdDraw.setPenRadius(0.006);
 		StdDraw.line(0, ry.get_min(), 0, ry.get_max());
 		StdDraw.line(rx.get_min(), 0, rx.get_max(), 0);
@@ -166,10 +167,7 @@ public class Functions_GUI implements functions {
 	@Override
 	public void drawFunctions(String json_file) {
 		
-
-	
-	/*	
-		Gson gson = new Gson();
+		gson gson = new Gson();
 		
 		int Width;
 		int Height;
@@ -192,19 +190,7 @@ public class Functions_GUI implements functions {
 			e.printStackTrace();
 		}
 		
-		
-		gs
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		JsonParser File = new JsonParser();
+		GSONparser File = new JsonParser();
 		String x1 = "";
 		String x2 = "";
 		String y1 = "";
@@ -234,7 +220,7 @@ public class Functions_GUI implements functions {
 			System.out.println("couldnt read the json file/maybe not enough params");
 		}
 	}
-*/
+
 	public String toString() {
 		String ans = "[";
 		for (int i = 0; i < this.size(); i++) {

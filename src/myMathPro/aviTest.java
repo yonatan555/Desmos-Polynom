@@ -2,21 +2,23 @@ package myMathPro;
 
 import java.util.Iterator;
 
+
+
 public class aviTest {
 
 	public static void main(String[] args) {
+		Polynom p1= new Polynom ("x^8+2x^2+1");
+		Polynom p2=new Polynom("x");
+
+		ComplexFunction cf = new ComplexFunction("plus",new Polynom("0.5x^7"),p2);
+		ComplexFunction cf1 = new ComplexFunction("mul", new Polynom("x"), new Polynom("x^2+x"));
+		
+		
 		Functions_GUI m = new Functions_GUI();
-		ComplexFunction a = new ComplexFunction("min",new Polynom("4x^3"),new Polynom("2"));
-		a.plus(new Polynom("x^2"));
-		a.comp(new Polynom("1"));
-		a.plus(new Polynom("3x+1"));
-		Polynom b = new Polynom("x");
-		Monom c = new Monom("x^3");
-		m.add(a);
-		m.add(b);
-		m.add(c);
-		
-		
+		m.add(p1);
+		m.add(p2);
+		m.add(cf);
+		m.add(cf1);
 		
 		Iterator<function> d = m.iterator();
 		/*while(d.hasNext()) {
