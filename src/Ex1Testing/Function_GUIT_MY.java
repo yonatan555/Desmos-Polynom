@@ -4,7 +4,7 @@ import java.util.Iterator;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
+import myMathPro.Functions_GUI;
 import myMathPro.ComplexFunction;
 import myMathPro.Monom;
 import myMathPro.Operation;
@@ -30,28 +30,9 @@ import myMathPro.functions;
  */
 class Functions_GUI_MY {
 	public static void main(String[] a) {
-		functions data = FunctionsFactory();
-	//	int w=1000, h=600, res=200;
-	//	Range rx = new Range(-10,10);
-	//	Range ry = new Range(-5,15);
-//		data.drawFunctions(w,h,rx,ry,res);
-		String file = "function_file.txt";
-		String file2 = "function_file2.txt";
-		try {
-			data.saveToFile(file);
-			Function_GUI data2 = new Function_GUI();
-			data2.initFromFile(file);
-			data.saveToFile(file2);
-		}
-		catch(Exception e) {e.printStackTrace();}
 		
-		String JSON_param_file = "GUI_params.txt";
-		data.drawFunctions(JSON_param_file);
 	}
 	private functions _data=null;
-//	@BeforeAll
-//	static void setUpBeforeClass() throws Exception {
-//	}
 
 	@BeforeEach
 	void setUp() throws Exception {
@@ -86,7 +67,7 @@ class Functions_GUI_MY {
 		//fail("Not yet implemented");
 	}
 	public static functions FunctionsFactory() {
-		functions ans = new Function_GUI();
+		functions ans = new Functions_GUI();
 		String s1 = "3.1 +2.4x^2 -x^4";
 		String s2 = "5 +2x -3.3x +0.1x^5";
 		String[] s3 = {"x +3","x -2", "x -4"};
@@ -97,7 +78,6 @@ class Functions_GUI_MY {
 		for(int i=1;i<s3.length;i++) {
 			cf3.mul(new Polynom(s3[i]));
 		}
-		
 		ComplexFunction cf = new ComplexFunction("plus", p1,p2);
 		ComplexFunction cf4 = new ComplexFunction("div", new Polynom("x +1"),cf3);
 		cf4.plus(new Monom("2"));
