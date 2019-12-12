@@ -1,11 +1,10 @@
 package Ex1Testing;
 
-import myMathPro.aviTest;
 import java.io.IOException;
 import java.util.Iterator;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+
 
 import myMathPro.ComplexFunction;
 import myMathPro.Functions_GUI;
@@ -13,7 +12,6 @@ import myMathPro.Monom;
 import myMathPro.Operation;
 import myMathPro.Polynom;
 import myMathPro.Range;
-import myMathPro.complex_function;
 import myMathPro.function;
 import myMathPro.functions;
 
@@ -47,10 +45,10 @@ class Functions_GUITest {
 	private functions _data = null;
 	public static void main(String[] a) throws IOException {
 
-		// test1();
-		/* test2(); */
+		/*// test1();
+		 test2(); 
 
-		/*
+		
 		 * Polynom p1= new Polynom ("x^8+2x^2+1"); Polynom p2=new Polynom("x");
 		 * 
 		 * ComplexFunction cf = new ComplexFunction("plus",new Polynom("0.5x^7"),p2);
@@ -63,7 +61,7 @@ class Functions_GUITest {
 		 * 
 		 * m.add(p1); m.add(p2); m.add(cf); m.add(cf1);
 		 * m.drawFunctions("GUI_params.txt");
-		 */
+		 
 
 		Functions_GUI data = (Functions_GUI) FunctionsFactory();
 		int w = 1000, h = 600, res = 200;
@@ -100,7 +98,7 @@ class Functions_GUITest {
 		String JSON_param_file = "GUI_params.txt";
 		data.drawFunctions(JSON_param_file);
 
-	}
+	}*/
 	public static void test1() {
 		String s = " plus(div(+1.0x +1.0,mul(mul(+1.0x +3.0,+1.0x -2.0),+1.0x - 4.0)),2.0)";
 		ComplexFunction m = new ComplexFunction("plus", new Polynom("5x"), new Polynom("2x"));
@@ -128,15 +126,23 @@ class Functions_GUITest {
 		System.out.println(cf);
 	}
 	@BeforeEach
-	void setUp() throws Exception {
+	/*void setUp() throws Exception {
 		_data = FunctionsFactory();
-	}
+	}*/
 	// @Test
 	void testInitFromFile() {
+		Functions_GUI m =  new Functions_GUI();	
+		m.initFromFile("test.txt");
+		
+		Iterator<function> itrfunc = m.iterator();
+		
 		
 	}
 	// @Test
 	void testSaveToFile() {
+		
+		
+	
 	}
 	// @Test
 	void testDrawFunctions() {

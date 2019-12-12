@@ -7,16 +7,16 @@ import myMathPro.Polynom_able;
 public class PolynomTest {
 	public static void main(String[] args) {
 		
-		  test1(); 
-		  test2(); 
-		  test3(); 
-		  test4(); 
-		  test5(); 
-		  test6();
-		   test7();
-		    test8();
+	//	/*  test1(); 
+		//  test2(); 
+		//  test3(); 
+		//  test4(); 
+		//  test5(); 
+		//  test6();
+		//   test7();
+		  //  test8();*/
 		 
-		// test9();
+	//	// test9();
 
 		/*Polynom p = new Polynom("");
 		System.out.println(p);*/
