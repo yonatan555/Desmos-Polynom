@@ -64,8 +64,12 @@ class Functions_GUITest {
 	public static void main(String[] a) throws IOException {
 		
 		//test1();
-		test2();
-
+	/*	test2();*/
+		
+		Functions_GUI m = new Functions_GUI();
+		m.drawFunctions("GUI_params.txt");
+		
+		
 		
 		/*
 		 * Functions_GUI data = (Functions_GUI) FunctionsFactory(); int w = 1000, h =

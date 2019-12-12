@@ -1,6 +1,8 @@
 package Ex1Testing;
 
 import java.util.ArrayList;
+
+import myMathPro.Functions_GUI;
 import myMathPro.Monom;
 import myMathPro.Polynom;
 
@@ -24,7 +26,9 @@ import myMathPro.Polynom;
  */
 public class MonomTest {
 	public static void main(String[] args) {
-		test1();
+		Functions_GUI m = new Functions_GUI();
+		m.drawFunctions("GUI_params.txt");
+//		test1();
 		/*test2();
 		//test3(); 	//test with error
 		//test4();	// test with error
@@ -35,7 +39,7 @@ public class MonomTest {
 	
 
 
-	private static void test1() {
+	private  void test1() {
 		Monom ab = new Monom("+3x");
 		System.out.println(ab);
 		/*System.out.println("*****  Test1:  *****");
@@ -49,7 +53,7 @@ public class MonomTest {
 		}*/
 	}
 
-	private static void test2() {
+	private  void test2() {
 		System.out.println("*****  Test2:  *****");
 		ArrayList<Monom> monoms = new ArrayList<Monom>();
 		monoms.add(new Monom(0, 5));

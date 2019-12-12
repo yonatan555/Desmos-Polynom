@@ -1,4 +1,4 @@
-package Ex1Testing;
+package myMathPro;
 
 import java.util.Iterator;
 
