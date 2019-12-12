@@ -46,71 +46,10 @@ class Functions_GUITest {
 	public static void main(String[] a) throws IOException {
 		
 		
-		try {
-			Functions_GUI m =  new Functions_GUI();	
-			m.initFromFile("test.txt");
-			m.drawFunctions(800, 600, new Range(-10, 10), new Range(-5, 15), 200);
-			
-			
-			
-		}
-		catch (Exception e) {
-			System.out.println("ss");
-		}
-
-		/*// test1();
-		 test2(); 
-
 		
-		 * Polynom p1= new Polynom ("x^8+2x^2+1"); Polynom p2=new Polynom("x");
-		 * 
-		 * ComplexFunction cf = new ComplexFunction("plus",new Polynom("0.5x^7"),p2);
-		 * ComplexFunction cf1 = new ComplexFunction("mul", new Polynom("x"), new
-		 * Polynom("x^2+x"));
-		 * 
-		 * 
-		 * Functions_GUI m = new Functions_GUI();
-		 * 
-		 * 
-		 * m.add(p1); m.add(p2); m.add(cf); m.add(cf1);
-		 * m.drawFunctions("GUI_params.txt");
-		 
 
-		Functions_GUI data = (Functions_GUI) FunctionsFactory();
-		int w = 1000, h = 600, res = 200;
-		Range rx = new Range(-10, 10);
-		Range ry = new Range(-5, 15);
-		data.drawFunctions(w, h, rx, ry, res);
-
-		Functions_GUI m = new Functions_GUI();
-		ComplexFunction e = new ComplexFunction("div", new ComplexFunction(new Polynom("4x^2")),
-				new ComplexFunction("mul", new Polynom("x"), new Polynom("x^7")));
-		System.out.println(e.f(0));
-
-		m.initFromFile("Functions_GUITest.txt");
-		m.saveToFile("txt");
-		ComplexFunction fun = new ComplexFunction();
-		System.out.println(fun.initFromString("plus(div(+5x^2+2x,-4x^2+3),div(4x,x))"));
-		ComplexFunction x = new ComplexFunction();
-		function y = x.initFromString("comp(div(+5x^2+2x,-4x^2+3),comp(div(x,x^2),div(5x,2x^2+1)))");
-		System.out.println(y.f(0));
-		FunctionsFactory();
-
-		data.drawFunctions(w, h, rx, ry, res);
-		String file = "function_file.txt";
-		String file2 = "function_file2.txt";
-		try {
-			data.saveToFile(file);
-			Functions_GUI data2 = new Functions_GUI();
-			data2.initFromFile(file);
-			data.saveToFile(file2);
-		} catch (Exception ed) {
-			ed.printStackTrace();
-		}
-
-		String JSON_param_file = "GUI_params.txt";
-		data.drawFunctions(JSON_param_file);
-*/
+		//test1(); //test for check if gui_funtions are working
+		// test2(); 
 	}
 	public static void test1() {
 		String s = " plus(div(+1.0x +1.0,mul(mul(+1.0x +3.0,+1.0x -2.0),+1.0x - 4.0)),2.0)";
@@ -144,8 +83,14 @@ class Functions_GUITest {
 	}*/
 	// @Test
 	void testInitFromFile() {
-		Functions_GUI m =  new Functions_GUI();	
-		m.initFromFile("test.txt");
+		try {
+			Functions_GUI m =  new Functions_GUI();	
+			m.initFromFile("test.txt");
+			m.drawFunctions(800, 600, new Range(-10, 10), new Range(-5, 15), 200);
+		}
+		catch (Exception e) {
+			;
+		}
 		
 		Iterator<function> itrfunc = m.iterator();
 		
