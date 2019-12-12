@@ -10,7 +10,7 @@ public class testGUI_functions {
 		try {
 			Functions_GUI m = new Functions_GUI();
 			m.initFromFile("test123.txt");
-			m.saveToFile("test123.txt");
+			m.saveToFile("test1234.txt");
 			m.drawFunctions(800, 600, new Range(-10, 10), new Range(-5, 15), 200); // regular check for draw function
 			m.drawFunctions("GUI_params.txt");// check for json file draw
 		} catch (Exception e) {
