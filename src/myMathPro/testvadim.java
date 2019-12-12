@@ -13,7 +13,7 @@ public class testvadim {
 			
 		}
 		catch (Exception e) {
-			// TODO: handle exception
+			System.out.println("ss");
 		}
 		
 		
