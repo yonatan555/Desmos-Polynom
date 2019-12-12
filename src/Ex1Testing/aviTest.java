@@ -17,6 +17,10 @@ public class aviTest {
 //		
 //		
 		Functions_GUI m = new Functions_GUI();
+		m.drawFunctions("GUI_params.txt");
+		
+		
+		
 		
 //		m.add(p1);
 //		m.add(p2);
