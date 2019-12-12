@@ -61,7 +61,7 @@ public class ComplexFunction implements complex_function {
 	}
 
 	@Override
-	public double f(double x) {
+	public double f(double x) { //Y vaule in X point
 		if (this.right == null) {
 			return this.left.f(x);
 		} else {
@@ -71,8 +71,8 @@ public class ComplexFunction implements complex_function {
 				return left1 + right1;
 			if (this.operator == Operation.Times)
 				return left1 * right1;
-			if (this.operator == Operation.Divid) {					   // if right value is 0 it will be -infinite/infinite
-				if ((this.left.f(x) == 0) && (this.right.f(x) == 0)) { // if the both values are equal to 0
+			if (this.operator == Operation.Divid) {					  		 // if right value is 0 it will be -infinite/infinite
+				if ((this.left.f(x) == 0) && (this.right.f(x) == 0)) { 		// if the both values are equal to 0
 					throw new ArithmeticException("Not defiend 0/0");
 				}
 				return left1 / right1;
@@ -94,7 +94,7 @@ public class ComplexFunction implements complex_function {
 	}
 
 	@Override
-	public function initFromString(String s) {
+	public function initFromString(String s) {//init a function from String
 		s = s.replaceAll(" ", "");
 		if(s.equals("")) throw new RuntimeException("Empty string");
 		s = s.toLowerCase();
@@ -105,7 +105,7 @@ public class ComplexFunction implements complex_function {
 		int mid = 0;
 		index = s.indexOf('(');
 		if (index != -1) {
-			mid = findMid(index, s);
+			mid = findMid(index, s);	//using findMid func to cut substring in the right place 
 			opera = s.substring(0, index);
 			f1 = s.substring(index + 1, mid);
 			f2 = s.substring(mid + 1, s.length() - 1);
@@ -119,7 +119,7 @@ public class ComplexFunction implements complex_function {
 		}
 	}
 
-	private int findMid(int index, String s) {
+	private int findMid(int index, String s) { // find the midlle of the Complex_function
 		int m = 0;
 		int j = 0;
 		int counter = 0;

@@ -6,50 +6,53 @@ import myMathPro.Polynom_able;
 
 public class PolynomTest {
 	public static void main(String[] args) {
-		//test1(); 
-		/*test2(); 
-		test3(); 
-		test4(); 
-		test5(); 
-		test6(); 
-		test7();
-		test8();*/
-		//test9();
 		
-		Polynom p = new Polynom("");
-		System.out.println(p);
-		
+		  test1(); 
+		  test2(); 
+		  test3(); 
+		  test4(); 
+		  test5(); 
+		  test6();
+		   test7();
+		    test8();
+		 
+		// test9();
+
+		/*Polynom p = new Polynom("");
+		System.out.println(p);*/
+
 	}
-	private static void test9() {
+
+	/*private static void test9() {
 		Polynom p1 = new Polynom("x^3+1");
 		Polynom p2 = new Polynom("x+2x");
 		p1.multiply(p2);
 		System.out.println(p1);
-		
-	/*	Polynom p3 = new Polynom("3x^3+3x^2+2x^3-1");
-		p3.add(new Monom("2x^3"));
 
-		System.out.println(p3);*/
-	}
+		
+		  Polynom p3 = new Polynom("3x^3+3x^2+2x^3-1"); p3.add(new Monom("2x^3"));	 
+		 System.out.println(p3);
+		 
+	}*/
+
 	public static void test1() {
 		Polynom p1 = new Polynom("-3x^2-1x+x^2+4x^8-5+0+1");
-		/*String[] monoms = { "3x^2 + 1" }; // test if the consrctuor is working
-		
+		String[] monoms = { "3x^2 + 1" }; // test if the consrctuor is working
+
 		Monom m1 = new Monom(monoms[0]);
 		for (int i = 0; i < monoms.length; i++) {
 			Monom m = new Monom(monoms[i]);
 			p1.add(m);
 		}
-		*/
-		
+
 		System.out.println(p1); // test toString
-		/*System.out.println(p1.f(2)); // test for f function (return the Y value at X value)
+		System.out.println(p1.f(2)); // test for f function (return the Y value at X value)
 		System.out.println(p1.isZero()); // return if zero
 		System.out.println(p1.root(1, 3, 0.000001)); // return the cross with pivot X
 		System.out.println(p1.derivative()); // derivative
 		System.out.println(p1.area(0, 2, 0.0000001)); // area
 		p1.multiply(m1); // multiply function
-		System.out.println(p1);*/
+		System.out.println(p1);
 	}
 
 	public static void test2() {
@@ -108,13 +111,13 @@ public class PolynomTest {
 		}
 		p1.multiply(p2); // polynom multiply test1
 		System.out.println(p1);
-		/*System.out.println(p2); // p2 toString
-		System.out.println(p1.equals(p2)); // polynom isEqual between 2 strings		
+		System.out.println(p2); // p2 toString
+		System.out.println(p1.equals(p2)); // polynom isEqual between 2 strings
 		p1.multiply(p2);
 		System.out.println("(p1+p2)*p2: " + p1);
 		String s1 = p1.toString();
 		System.out.println("from string: " + p1);
-	*/}
+	}
 
 	public static void test5() {
 		Polynom p1 = new Polynom();
@@ -134,26 +137,26 @@ public class PolynomTest {
 
 	public static void test6() {
 		Polynom p1 = new Polynom("x-4");
-		/*String[] monoms = { "x", "-4" }; // test if the consrctuor is working
+		String[] monoms = { "x", "-4" }; // test if the consrctuor is working
 		Monom m1 = new Monom(monoms[0]);
 		for (int i = 0; i < monoms.length; i++) {
 			Monom m = new Monom(monoms[i]);
-			p1.add(m);*/
-	//	}
-		//System.out.println(p1.area(0, 2, 0.0000001)); // area
+			p1.add(m);
+		}
+		System.out.println(p1.area(0, 2, 0.0000001)); // area
 		System.out.println(p1.root(5, -5, 0.000001)); // return the cross with pivot X
-		/*System.out.println(p1);
+		System.out.println(p1);
 		System.out.println(p1); // test toString
 		System.out.println(p1.derivative()); // derivative
 		System.out.println(p1.isZero()); // return if zero
-*/	}
+	}
 
 	private static void test7() {
 		Polynom p1 = new Polynom();
 		Polynom p2 = new Polynom();
 
 		String[] monoms1 = { "x", "4x", "-1.2x^2", "4", "-9x^2" };
-		String[] monoms2 = { "13","2x",  "3.5x^2" };
+		String[] monoms2 = { "13", "2x", "3.5x^2" };
 
 		for (int i = 0; i < monoms1.length; i++) {
 			Monom m = new Monom(monoms1[i]);
@@ -171,12 +174,12 @@ public class PolynomTest {
 		System.out.println(p1.isZero()); // return if zero
 	}
 
-	private static void test8(){
+	private static void test8() {
 		Polynom p1 = new Polynom();
 		Polynom p2 = new Polynom();
 
 		String[] monoms1 = { "x", "4x", "-1.2x^2", "4", "-9x^2" };
-		String[] monoms2 = { "13","2x",  "3.5x^2" };
+		String[] monoms2 = { "13", "2x", "3.5x^2" };
 
 		for (int i = 0; i < monoms1.length; i++) {
 			Monom m = new Monom(monoms1[i]);
@@ -196,8 +199,7 @@ public class PolynomTest {
 		Polynom pole = new Polynom("4x^2+2x+1+1");
 		System.out.println(pole);
 		System.out.println(pole.f(1));
-		
-	}
 
 	}
 
+}

@@ -26,8 +26,6 @@ import myMathPro.Polynom;
  */
 public class MonomTest {
 	public static void main(String[] args) {
-		Functions_GUI m = new Functions_GUI();
-		m.drawFunctions("GUI_params.txt");
 //		test1();
 		/*test2();
 		//test3(); 	//test with error
