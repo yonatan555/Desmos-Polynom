@@ -18,7 +18,7 @@ public class ComplexFunction implements complex_function {
 	public ComplexFunction(Operation p, function f1, function f2) {
 		this.left = f1;
 		this.right = f2;
-		if(p==operator.Error) {
+		if(p==Operation.Error) {
 			throw new ExceptionInInitializerError("The input couldnt be intilaized");
 		}
 		else this.operator = p;	

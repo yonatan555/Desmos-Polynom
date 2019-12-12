@@ -17,10 +17,11 @@ public class aviTest {
 		m.add(c);
 		
 		
+		
 		Iterator<function> d = m.iterator();
-		while(d.hasNext()) {
+		/*while(d.hasNext()) {
 			System.out.println(d.next().toString());
-		}
+		}*/
 		int w=1000, h=600, res=200;
 		Range rx = new Range(-10,10);
 		Range ry = new Range(-5,10);
