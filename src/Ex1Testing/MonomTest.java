@@ -39,7 +39,7 @@ public class MonomTest {
 	
 
 
-	private  void test1() {
+	private static void test1() {
 		Monom ab = new Monom("+3x");
 		System.out.println(ab);
 		/*System.out.println("*****  Test1:  *****");
@@ -53,7 +53,7 @@ public class MonomTest {
 		}*/
 	}
 
-	private  void test2() {
+	private static void test2() {
 		System.out.println("*****  Test2:  *****");
 		ArrayList<Monom> monoms = new ArrayList<Monom>();
 		monoms.add(new Monom(0, 5));
