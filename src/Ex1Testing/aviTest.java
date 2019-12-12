@@ -1,6 +1,8 @@
-package myMathPro;
+package Ex1Testing;
 
 import java.util.Iterator;
+
+import myMathPro.Functions_GUI;
 
 
 
