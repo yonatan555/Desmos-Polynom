@@ -91,7 +91,8 @@ public class Functions_GUI implements functions {
 	}
 
 	@Override
-	public void initFromFile(String file) throws IOException { // read only functions and add to the arrayList
+	public void initFromFile(String file) throws IOException {				 // read only functions and add to the arrayList
+		
 		try {
 			tab = new ArrayList<function>();
 			FileReader fr = new FileReader(file);
@@ -180,6 +181,7 @@ public class Functions_GUI implements functions {
 	try {
 		
 		JSONParser file = new JSONParser();
+		
 		Object objct = file.parse(new FileReader(json_file));
 		JSONObject jsonobj = (JSONObject) objct;
 		JSONArray ry = (JSONArray) jsonobj.get("Range_Y"); 
