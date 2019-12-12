@@ -14,7 +14,10 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Scanner;
 
-
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 public class Functions_GUI implements functions {
 	ArrayList<function> tab;
 
@@ -166,59 +169,40 @@ public class Functions_GUI implements functions {
 
 	@Override
 	public void drawFunctions(String json_file) {
+	String x0 = ""	;
+	String x1 = ""	;
+	String y0 = ""	;
+	String y1 = ""	;
+	long resolution = 0;
+	long rohav = 0;
+	long gova = 0; 
+	
+	try {
 		
-		gson gson = new Gson();
+		JSONParser file = new JSONParser();
+		Object objct = file.parse(new FileReader(json_file));
+		JSONObject jsonobj = (JSONObject) objct;
+		JSONArray ry = (JSONArray) jsonobj.get("Range_Y"); 
+		JSONArray rx = (JSONArray) jsonobj.get("Range_X"); 
 		
-		int Width;
-		int Height;
-		int Resolution;
+		rohav = (long) jsonobj.get("Width"); 
+		gova = (long) jsonobj.get("Height"); 
+		x0 = rx.get(0).toString();
+		x1 = rx.get(1).toString();
+		y0 = ry.get(0).toString();
+		y1 = ry.get(1).toString();
+		resolution = (long)	jsonobj.get("Resolution");
 		
-		double[] Range_X = new double[2];
-		double[] Range_Y = new double[2];
+		Range rx_ = new Range(Integer.parseInt(x0), Integer.parseInt(x1));
+		Range ry_ = new Range(Integer.parseInt(y0), Integer.parseInt(y1));
 		
-		try 
-		{
-			FileReader reader = new FileReader(json_file);
-			String parm    = gson.fromJson();
-			Range rangeX      = new Range(Range_X[0],Range_X[1]);
-			Range rangeY      = new Range(Range_Y[0],Range_Y[1]);
-
-			drawFunctions(Width, Height, rangeX, rangeY, Resolution);
-			return;
-		} 
-		catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
+		drawFunctions((int)rohav, (int) gova, rx_, ry_, (int) resolution);
 		
-		GSONparser File = new JsonParser();
-		String x1 = "";
-		String x2 = "";
-		String y1 = "";
-		String y2 = "";
-		int resolution = 0;
-		try {
-			Object object = File.parse(new FileReader(json_file));
-			JsonObject jason = (JsonObject)object;
-			JsonArray json_rx = (JsonArray) jason.get("Rnange_Y");
-			JsonArray json_ry = (JsonArray) jason.get("Rnange_X");
-			x1 = json_rx.get(0).toString();
-			x2 = json_rx.get(1).toString();
-			y1 = json_ry.get(0).toString();
-			y2 = json_ry.get(1).toString();
-			resolution = ("resolution");
-			
-			long width = (long) jason.get("width");
-			long height = jason.get("height");
-			
-			Range rx = new Range(Integer.parseInt(x1) , Integer.parseInt(x2));
-			Range ry = new Range(Integer.parseInt(y1) , Integer.parseInt(y2));
-			drawFunctions((int)width ,(int) height, rx, ry, (int)resolution);
-			
-		}
-		catch(Exception e){
-			e.printStackTrace();
-			System.out.println("couldnt read the json file/maybe not enough params");
-		}
+	} catch (Exception E) {
+		E.printStackTrace();
+		System.out.println("coulnt read the json file/maybe miss params");
+	}
+	
 	}
 
 	public String toString() {
