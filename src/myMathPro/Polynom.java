@@ -14,7 +14,7 @@ import myMathPro.Monom;
  *
  */
 public class Polynom implements Polynom_able {
-	ArrayList<Monom> polynom;
+	public ArrayList<Monom> polynom;
 	
 
 	/**
@@ -71,9 +71,13 @@ public class Polynom implements Polynom_able {
 	@Override
 	public void add(Monom m1) {
 		Boolean flag = false;
+		
+		Monom m2 = (Monom) m1.copy();
+		
+		
 		for (int i = 0; i < this.polynom.size(); i++) { 	// adding monom to polynom
 			if (this.polynom.get(i).get_power() == m1.get_power()) {
-				this.polynom.get(i).add(m1);
+				this.polynom.get(i).add(m2);
 				flag = true;
 			}
 		}
@@ -83,7 +87,7 @@ public class Polynom implements Polynom_able {
 			}
 		}
 		if (flag == false)
-			this.polynom.add(m1);
+			this.polynom.add(m2);
 		
 		this.polynom.sort(Monom._Comp);
 	}
@@ -125,7 +129,12 @@ public class Polynom implements Polynom_able {
 	}
 	@Override
 	public boolean equals(Object p1) {
-		if(p1 instanceof Polynom_able|| p1 instanceof Polynom) {
+		if(p1 instanceof Monom) {
+			Polynom p2 = new Polynom(p1.toString());
+			p1=p2.copy();
+		}
+		
+		if(p1 instanceof Polynom_able|| p1 instanceof Polynom ) {
 			polynom.sort(Monom._Comp);
 			Iterator<Monom> etiP = ((Polynom_able )p1).iteretor();
 			Iterator<Monom> etiT = this.iteretor();
@@ -178,7 +187,7 @@ public class Polynom implements Polynom_able {
 		return x2;
 	}
 	@Override
-	public Polynom_able copy() {
+	public function copy() {
 
 		Polynom_able polyCopy = new Polynom();
 		Iterator<Monom> it = this.iteretor();

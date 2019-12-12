@@ -94,20 +94,31 @@ public class Functions_GUI implements functions {
 	public void initFromFile(String file) throws IOException {				 // read only functions and add to the arrayList
 		
 		try {
+			String shora = "";
 			tab = new ArrayList<function>();
-			FileReader fr = new FileReader(file);
-			BufferedReader br = new BufferedReader(fr);
-
-			while (br.ready()) {
-
+			FileReader s = new FileReader(file);
+			BufferedReader m = new BufferedReader(s);
+			
+			shora = m.readLine();
+			
+			while (shora != null && shora.length()!=0) {
+				
+				if(shora == null || shora.length() == 0) {
+					m.close();
+				}
+				
+				shora = shora.substring(shora.indexOf("f(x)=")+"f(x)=".length());
+				
+				shora = shora.replaceAll("\\s", "");
+				
 				ComplexFunction cf = new ComplexFunction();
-				function y = cf.initFromString(br.readLine());
-				System.out.println("f(x)= " + y);
-				this.add(y);
-
+				
+				tab.add(cf.initFromString(shora));
+				
+				shora = m.readLine();
 			}
 			System.out.println("The functions have read");
-			br.close();
+			m.close();
 		} catch (Exception e) {
 			System.out.println("coulndt find the file/ entered a wrong f(x)");
 		}
@@ -120,7 +131,7 @@ public class Functions_GUI implements functions {
 			Iterator<function> itrfunc = tab.iterator();
 			while (itrfunc.hasNext()) {
 				function func = itrfunc.next();
-				read.write(func.toString() + "/n");
+				read.write(func.toString() + "\n");
 			}
 			read.close();
 		} catch (FileNotFoundException e) {
@@ -177,11 +188,10 @@ public class Functions_GUI implements functions {
 	long resolution = 0;
 	long rohav = 0;
 	long gova = 0; 
-	
+
 	try {
 		
 		JSONParser file = new JSONParser();
-		
 		Object objct = file.parse(new FileReader(json_file));
 		JSONObject jsonobj = (JSONObject) objct;
 		JSONArray ry = (JSONArray) jsonobj.get("Range_Y"); 

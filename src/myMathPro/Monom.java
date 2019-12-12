@@ -72,7 +72,13 @@ public class Monom implements function {
 	// ***************** add your code below **********************
 	public Monom(String s) throws RuntimeException {
 
-		s = s.toLowerCase();
+		
+		if(s.length()==1 && (s.charAt(0)=='-' || s.charAt(0)=='+' ))
+		{
+			throw new RuntimeException("wrong input");
+		}
+			
+			s = s.toLowerCase();
 		s=s.replaceAll(" ", "");
 		String a = ""; // _coefficient
 	
@@ -159,6 +165,14 @@ public class Monom implements function {
 				return true;
 			if (this.get_coefficient() == 0 && ((Monom) c).get_coefficient() == 0)
 				return true;
+		}
+		if( c instanceof Polynom)
+		{
+			return c.equals(this);
+		}
+		if( c instanceof ComplexFunction)
+		{
+			return c.equals(this);
 		}
 		return false;
 	}
