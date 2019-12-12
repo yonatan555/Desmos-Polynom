@@ -44,6 +44,19 @@ import myMathPro.functions;
 class Functions_GUITest {
 	private functions _data = null;
 	public static void main(String[] a) throws IOException {
+		
+		
+		try {
+			Functions_GUI m =  new Functions_GUI();	
+			m.initFromFile("test.txt");
+			m.drawFunctions(800, 600, new Range(-10, 10), new Range(-5, 15), 200);
+			
+			
+			
+		}
+		catch (Exception e) {
+			System.out.println("ss");
+		}
 
 		/*// test1();
 		 test2(); 
@@ -97,8 +110,8 @@ class Functions_GUITest {
 
 		String JSON_param_file = "GUI_params.txt";
 		data.drawFunctions(JSON_param_file);
-
-	}*/
+*/
+	}
 	public static void test1() {
 		String s = " plus(div(+1.0x +1.0,mul(mul(+1.0x +3.0,+1.0x -2.0),+1.0x - 4.0)),2.0)";
 		ComplexFunction m = new ComplexFunction("plus", new Polynom("5x"), new Polynom("2x"));
